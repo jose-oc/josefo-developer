@@ -1,11 +1,72 @@
+#baseURL = "/"
 baseURL = "https://jose-oc.github.io/josefo-developer/"
-languageCode = "en-us"
+languageCode = "en-US"
+defaultContentLanguage = "en"
+
 title = "Josefo developer"
 theme = "hugo-theme-learn"
+#themesdir = "../.."
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
 
 # To build the project into this folder (docs is the one used by github to create the static website)
 publishDir = "docs"
 
+[params]
+  editURL = "https://jose-oc.github.io/josefo-developer/content/"
+  description = "Josefo developer. IT notes"
+  author = "Jose OC"
+  showVisitedLinks = true
+
 # For search functionnality
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
+
+[Languages]
+[Languages.en]
+title = "Josefo dev"
+weight = 1
+languageName = "English"
+
+[[Languages.en.menu.shortcuts]] 
+name = "<i class='fa fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://github.com/jose-oc/josefo-developer"
+weight = 10
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fa fa-camera'></i> CV"
+url = "cv"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fa fa-bullhorn'></i> Credits"
+url = "/credits"
+weight = 30
+
+[Languages.es]
+title = "Programador Josefo"
+weight = 2
+languageName = "Español"
+
+[[Languages.es.menu.shortcuts]]
+name = "<i class='fa fa-github'></i> Repo Github"
+identifier = "ds"
+url = "https://github.com/jose-oc/josefo-developer"
+weight = 10
+
+[[Languages.es.menu.shortcuts]]
+name = "<i class='fa fa-camera'></i> CV"
+url = "/cv"
+weight = 20
+
+[[Languages.es.menu.shortcuts]]
+name = "<i class='fa fa-bookmark'></i> Documentation Hugo"
+identifier = "hugodoc"
+url = "https://gohugo.io/"
+weight = 22
+
+[[Languages.es.menu.shortcuts]]
+name = "<i class='fa fa-bullhorn'></i> Créditos"
+url = "/credits"
+weight = 30
