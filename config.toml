@@ -3,6 +3,9 @@ languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "hugo-theme-learn"
 
+# To build the project into this folder (docs is the one used by github to create the static website)
+publishDir = "docs"
+
 # For search functionnality
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
