@@ -1,9 +1,6 @@
 ---
 title: Consultar la primera o última ocurrencia en una relación uno a muchos
-author: Jose OC
-type: post
 date: 2016-02-03T18:45:20+00:00
-url: /blog/consultar-la-primera-o-ultima-ocurrencia-en-una-relacion-uno-a-muchos/
 categories:
   - Bases de datos
   - PostgreSQL
@@ -27,7 +24,8 @@ tags:
   Querremos saber para cada autor qué libro se publicó más recientemente:
 </p>
 
-<pre class="lang:pgsql decode:true ">CREATE TABLE author (id serial, name varchar(255));
+```sql
+CREATE TABLE author (id serial, name varchar(255));
 CREATE TABLE book (id serial, author_id int, title varchar(255), date timestamp);
 CREATE INDEX latest_book_idx ON book (author_id, date, id);
 
@@ -57,10 +55,10 @@ WHERE b2.id IS NULL;
   1 | Peter |  3 |         1 | Book 13 | 2005-01-01 00:00:00
   2 | Sarah |  5 |         2 | Book 22 | 2012-01-01 00:00:00
   3 | Paul  | 10 |         3 | Book 35 | 2016-01-01 00:00:00
-(3 rows)</pre>
+(3 rows)
+```
 
 Fíjate que el autor 3 publicó dos libros en la misma fecha pero se saca solamente el último, el de mayor id.
 
-&nbsp;
 
 Nota: este ejemplo lo he hecho en Postgresql pero puede extrapolarse a cualquier base de datos.

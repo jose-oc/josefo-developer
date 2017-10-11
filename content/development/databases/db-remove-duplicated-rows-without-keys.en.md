@@ -1,9 +1,6 @@
 ---
 title: Remove duplicated rows without keys
-author: Jose OC
-type: post
 date: 2016-02-26T23:49:56+00:00
-url: /en/blog/remove-duplicated-rows-without-keys/
 tags:
   - relational-database
 
@@ -20,7 +17,8 @@ tags:
   Here is the example:
 </p>
 
-<pre class="lang:pgsql decode:true " title="Remove duplicate rows">-- Create a table without keys and duplicated rows
+```sql
+-- Create a table without keys and duplicated rows
 
 CREATE TABLE items (code text, name text);
 INSERT INTO items (code, name) VALUES 
@@ -47,6 +45,5 @@ SELECT * FROM items;
  A-003 | Item 003
  A-001 | Item 001
  A-002 | Item 002
-(3 rows)</pre>
-
-&nbsp;
+(3 rows)
+```

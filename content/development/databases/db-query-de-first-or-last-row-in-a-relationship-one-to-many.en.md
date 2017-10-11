@@ -1,9 +1,6 @@
 ---
 title: Query de first or last row in a relationship one to many
-author: Jose OC
-type: post
 date: 2016-02-03T18:51:43+00:00
-url: /en/blog/query-de-first-or-last-row-in-a-relationship-one-to-many/
 tags:
   - sql
 
@@ -20,7 +17,8 @@ tags:
   We'll create both tables: book and author with a relationship one-to-many. We'll write some data to test the sql.
 </p>
 
-<pre class="lang:pgsql decode:true">CREATE TABLE author (id serial, name varchar(255));
+```sql
+CREATE TABLE author (id serial, name varchar(255));
 CREATE TABLE book (id serial, author_id int, title varchar(255), date timestamp);
 CREATE INDEX latest_book_idx ON book (author_id, date, id);
 
@@ -50,10 +48,10 @@ WHERE b2.id IS NULL;
   1 | Peter |  3 |         1 | Book 13 | 2005-01-01 00:00:00
   2 | Sarah |  5 |         2 | Book 22 | 2012-01-01 00:00:00
   3 | Paul  | 10 |         3 | Book 35 | 2016-01-01 00:00:00
-(3 rows)</pre>
+(3 rows)
+```
 
 Notice that the author number 3 published two books in the same date but we get the latest one, the one with a greater id.
 
-&nbsp;
 
 For this example I've used postgresql but you can use this sql in any database.

@@ -1,9 +1,6 @@
 ---
 title: Eliminar filas duplicadas sin keys
-author: Jose OC
-type: post
 date: 2016-02-26T23:41:20+00:00
-url: /blog/eliminar-filas-duplicadas-sin-keys/
 categories:
   - Bases de datos
   - PostgreSQL
@@ -23,7 +20,8 @@ tags:
   En primer lugar eliminamos las filas duplicadas, <strong>todas</strong>, pero recogemos los datos eliminados y los volvemos a insertar en la tabla agrupándolos para evitar duplicidades. Aquí el ejemplo:
 </p>
 
-<pre class="lang:pgsql decode:true " title="Remove duplicate rows">-- Create a table without keys and duplicated rows
+```sql
+-- Create a table without keys and duplicated rows
 
 CREATE TABLE items (code text, name text);
 INSERT INTO items (code, name) VALUES 
@@ -50,6 +48,5 @@ SELECT * FROM items;
  A-003 | Item 003
  A-001 | Item 001
  A-002 | Item 002
-(3 rows)</pre>
-
-&nbsp;
+(3 rows)
+```

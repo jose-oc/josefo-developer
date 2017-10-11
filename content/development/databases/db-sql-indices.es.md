@@ -1,10 +1,7 @@
 ---
 title: Filtrar consulta con dos o más rangos
-author: Jose OC
-type: post
 date: 2016-01-01T00:00:00+00:00
 draft: true
-url: /?p=99
 categories:
   - Bases de datos
 tags:
@@ -22,6 +19,8 @@ tags:
 
 Veámoslo con un ejemplo:
 
+```sql
 select * from usuarios where provincia < ? and num_visitas < ?
+```
 
 ver páginas 50 y anteriores del libro&#8230;

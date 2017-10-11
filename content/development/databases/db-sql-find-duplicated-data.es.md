@@ -1,9 +1,6 @@
 ---
 title: Consulta para encontrar datos repetidos en una tabla
-author: Jose OC
-type: post
 date: 2014-10-24T15:04:22+00:00
-url: /blog/consulta-para-encontrar-datos-repetidos-en-una-tabla/
 categories:
   - Bases de datos
   - MySQL
@@ -17,7 +14,8 @@ categories:
   La estructura de la tabla era la siguiente:
 </p>
 
-<pre class="lang:mysql decode:true">CREATE TABLE `categorias` (
+```sql
+CREATE TABLE `categorias` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
   `IDProducto` int(10) NOT NULL,
   `categoria1` char(50) DEFAULT NULL,
@@ -30,36 +28,40 @@ categories:
   PRIMARY KEY (`ID`),
   KEY `indiceCategorias1` (`IDProducto`),
   KEY `idx_cat_producto_activo_fecha` (`IDProducto`,`activo`,`fecha`)
-) ENGINE=MyISAM AUTO_INCREMENT=94419 DEFAULT CHARSET=latin1</pre>
+) ENGINE=MyISAM AUTO_INCREMENT=94419 DEFAULT CHARSET=latin1
+```
 
-&nbsp;
 
 <p style="text-align: justify">
   Para localizar las filas repetidas ejecuté una consulta como ésta:
 </p>
 
-<pre class="lang:mysql decode:true">select count(*) numRepeticiones, IDProducto, categoria1, categoria2, fecha, activo, 
+```sql
+select count(*) numRepeticiones, IDProducto, categoria1, categoria2, fecha, activo, 
 MIN(ID) IDMantener, 
 SUBSTRING( GROUP_CONCAT( ID order by ID ), LOCATE(',', GROUP_CONCAT( ID order by ID ))+1 ) IDsEliminar 
 from categorias 
 where IDProducto &gt;= 3000000 and IDProducto &lt; 4000000 
 group by IDProducto, categoria1, categoria2, fecha, activo, nombre, descripcion 
 having count(*) &gt; 1 
-order by IDProducto, ID, fecha desc;</pre>
+order by IDProducto, ID, fecha desc;
+```
 
 <p style="text-align: justify">
   La clave de esta consulta SQL para conseguir los datos que están repetidos es saber qué campos son los que indican que la información está repetida y agrupar por dichos campos, indicando además que debe haber más de una fila en cada uno de estos grupos. Esto se hace con estas instrucciones:
 </p>
 
-<pre class="lang:mysql decode:true ">group by IDProducto, categoria1, categoria2, fecha, activo, nombre, descripcion 
-having count(*) &gt; 1</pre>
+```sql
+group by IDProducto, categoria1, categoria2, fecha, activo, nombre, descripcion 
+having count(*) > 1
+```
 
 <p style="text-align: justify">
   Además, me interesaba sacar <strong>en una columna el id que iba a conservar</strong> y en otra los <strong>id de las filas repetidas</strong> que tenía que <strong>eliminar</strong>.
 </p>
 
 <p style="text-align: justify">
-  Decidí <strong>mantener</strong> la fila más antigua siguiendo la lógica de que posiblemente fuera la más usada, para ello usé la función <span class="lang:default decode:true  crayon-inline ">MIN()</span>  ya que este campo es autoincremental.
+  Decidí <strong>mantener</strong> la fila más antigua siguiendo la lógica de que posiblemente fuera la más usada, para ello usé la función `MIN()`  ya que este campo es autoincremental.
 </p>
 
 <p style="text-align: justify">
@@ -72,13 +74,17 @@ having count(*) &gt; 1</pre>
   Pero claro, aquí está incluido el MIN(ID) que tengo en la columna anterior y no me interesa tenerlo porque mi intención es eliminar las filas de estos ID así que tengo que sacarlo de aquí. Como el resultado de esta columna es un string con valores separados por comas y como mínimo voy a tener dos valores separados por una coma, puedo parsear dicho string y quedarme con un substring del mismo quitando, por ejemplo, el primer elemento. Eso lo puedo hacer con la función SUBSTRING():
 </p>
 
-<pre class="lang:mysql decode:true ">SUBSTRING( GROUP_CONCAT( ID ), posicion_de_la_coma + 1 )</pre>
+```sql
+SUBSTRING( GROUP_CONCAT( ID ), posicion_de_la_coma + 1 )
+```
 
 <p style="text-align: justify">
   Y necesito saber la posición de la coma para indicárselo a la función SUBSTRING, concretamente le tengo que indicar la siguiente posición a la coma, ya que la primera coma no me interesa. Puedo usar la función LOCATE() que nos dice la primera posición donde aparece el caracter que le indique.
 </p>
 
-<pre class="lang:mysql decode:true">LOCATE(',', GROUP_CONCAT( ID )) + 1</pre>
+```sql
+LOCATE(',', GROUP_CONCAT( ID )) + 1
+```
 
 <p style="text-align: justify">
   Pero ojo, vamos a quitar el primer elemento y me tengo que asegurar de que el que quito es el que tengo en la columna IDMantener, que es el más pequeño, así que tendremos que ordenar los elementos dentro del GROUP_CONCAT.
@@ -88,7 +94,9 @@ having count(*) &gt; 1</pre>
   Finalmente tenemos la definición de la columna:
 </p>
 
-<pre class="lang:mysql decode:true">SUBSTRING( GROUP_CONCAT( ID order by ID ), LOCATE(',', GROUP_CONCAT( ID order by ID ))+1 ) IDsEliminar</pre>
+```sql
+SUBSTRING( GROUP_CONCAT( ID order by ID ), LOCATE(',', GROUP_CONCAT( ID order by ID ))+1 ) IDsEliminar
+```
 
 El orden dado a la consulta es simplemente para ver de una forma más clara los datos.
 
@@ -96,7 +104,8 @@ El orden dado a la consulta es simplemente para ver de una forma más clara los 
   De estar forma al ejecutar la consulta obtengo algo así:
 </p>
 
-<pre class="lang:mysql highlight:0 decode:true ">+-----------------+------------+------------------+------------+------------+--------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+```sql
++-----------------+------------+------------------+------------+------------+--------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | numRepeticiones | IDProducto | categoria1       | categoria2 | fecha      | activo | IDMantener | IDsEliminar                                                                                                                                                                                                                                                                                                |
 +-----------------+------------+------------------+------------+------------+--------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |              39 |   10000298 | YEL              |            | 2010-01-01 |      0 |        343 | 379,427,448,453,454,576,595,601,658,659,683,757,782,889,908,909,1045,1046,1047,1048,1074,1109,1110,1179,1275,1307,1329,1432,1487,1545,1546,1579,1629,1646,1650,1657,1745,1802                                                                                                                              |
@@ -140,7 +149,8 @@ El orden dado a la consulta es simplemente para ver de una forma más clara los 
 |               2 |   13000017 | WEW              | X          | 2010-10-22 |      1 |      74479 | 74487                                                                                                                                                                                                                                                                                                      |
 |               2 |   23000015 | S32              | X          | 2012-12-18 |      0 |      74147 | 74153                                                                                                                                                                                                                                                                                                      |
 +-----------------+------------+------------------+------------+------------+--------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-149 rows in set (0.20 sec)</pre>
+149 rows in set (0.20 sec)
+```
 
 Ya tengo un listado con todas las filas repetidas, el ID de la fila que quiero mantener y los ID de las filas que quiero eliminar.
 
@@ -148,9 +158,11 @@ Ya tengo un listado con todas las filas repetidas, el ID de la fila que quiero m
   Pero antes de eliminarlas tengo que saber si estos ID que voy a eliminar aparecen en alguna otra tabla haciendo referencia. En este caso la tabla no tiene claves foráneas pero sé cómo se llaman las columnas en caso de existir en otras tablas, así que busco estas columnas:
 </p>
 
-<pre class="lang:mysql decode:true">SELECT DISTINCT TABLE_NAME  
+```sql
+SELECT DISTINCT TABLE_NAME  
 FROM INFORMATION_SCHEMA.COLUMNS 
-WHERE COLUMN_NAME = 'IDCategoria' AND TABLE_SCHEMA='BDPruebas';</pre>
+WHERE COLUMN_NAME = 'IDCategoria' AND TABLE_SCHEMA='BDPruebas';
+```
 
 Ahora ya puedo realizar la tarea de actualizar los registros de las tablas que hacen referencia a estos valores estableciendo el valor IDMantener y una vez que estén todos cambiados, podré borrar los registros de la tabla categorias.
 

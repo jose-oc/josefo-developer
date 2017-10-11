@@ -1,9 +1,6 @@
 ---
 title: Índices parciales o filtrados
-author: Jose OC
-type: post
 date: 2014-10-06T10:09:04+00:00
-url: /blog/indices-parciales-o-filtrados/
 categories:
   - Bases de datos
   - PostgreSQL
@@ -24,10 +21,12 @@ tags:
   Siendo así seguro que en la consulta SQL tienes algo parecido a esto:
 </p>
 
-<pre class="lang:pgsql mark:3 decode:true ">select id, nombre, estado  
+```sql
+select id, nombre, estado  
 from producto 
 where estado = 1 
-and ...</pre>
+and ...
+```
 
 <p style="text-align: justify">
    Los productos se irán dando de alta con estado = 1 y conforme se trabaje con ellos irán cambiando su estado. Esto significa que la tabla puede crecer enormemente pero seguramente, por muy grande que se haga la tabla, el porcentaje o el total de registros que tengan estado 1 no crecerá de la misma forma.
@@ -49,8 +48,8 @@ and ...</pre>
   La sintaxis para crearlos es muy sencilla:
 </p>
 
-<pre class="lang:pgsql mark:3 decode:true ">CREATE INDEX productos_nuevos 
+```sql
+CREATE INDEX productos_nuevos 
 ON productos (... los campos que necesite ...) 
-WHERE estado = 1;</pre>
-
-&nbsp;
+WHERE estado = 1;
+```
