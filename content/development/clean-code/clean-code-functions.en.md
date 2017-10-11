@@ -7,9 +7,9 @@ weight: 20
 
 Something that I love is to read code as a recipe, almost in natural language. To achieve this you can split your methods up writing a number of functions with descriptive names.
 
-Each function should be **as small as possible**, you can even get one-line functions, awesome. Each function should **do** just **one thing**. Each function should have **one level of abstraction**, for instance, don&#8217;t mix operation at byte level with operations a String level.
+Each function should be **as small as possible**, you can even get one-line functions, awesome. Each function should **do** just **one thing**. Each function should have **one level of abstraction**, for instance, don't mix operation at byte level with operations a String level.
 
-Using functions this way we&#8217;ll write a number of **private functions** that will be called just by one method, so the best place to **write them is just bellow** the method will call them because this way will improve readability.
+Using functions this way we'll write a number of **private functions** that will be called just by one method, so the best place to **write them is just bellow** the method will call them because this way will improve readability.
 
 # Command Query Separation
 
@@ -20,7 +20,7 @@ Functions should have one of these purposes, but **not both** of them:
 
 # Try-Catch is the goal of a function
 
-Following the rule that say that a function must do just one thing, why don&#8217;t give the responsibility of do the try-catch to a function? It is convert this:
+Following the rule that say that a function must do just one thing, why don't give the responsibility of do the try-catch to a function? It is convert this:
 
 ```java
 public void doSomething() {

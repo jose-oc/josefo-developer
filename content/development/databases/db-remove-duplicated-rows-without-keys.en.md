@@ -9,11 +9,11 @@ tags:
 
 ---
 <p style="text-align: justify">
-  Let&#8217;s say we have a table in a relational database (for this example I use Postgresql 9.3) without any key and we have duplicated data and we want to get rid of all these redundant data. To do so I&#8217;m going to draw on <a href="http://www.postgresql.org/docs/current/static/queries-with.html" target="_blank">Common Table Expressions</a> (CTE).
+  Let's say we have a table in a relational database (for this example I use Postgresql 9.3) without any key and we have duplicated data and we want to get rid of all these redundant data. To do so I'm going to draw on <a href="http://www.postgresql.org/docs/current/static/queries-with.html" target="_blank">Common Table Expressions</a> (CTE).
 </p>
 
 <p style="text-align: justify">
-  Firstly I&#8217;ll remove the redundant rows, all of them, but I don&#8217;t want to lose any data. Well, then I&#8217;ll insert them again but using the clause group by to avoid duplication.
+  Firstly I'll remove the redundant rows, all of them, but I don't want to lose any data. Well, then I'll insert them again but using the clause group by to avoid duplication.
 </p>
 
 <p style="text-align: justify">

@@ -15,7 +15,7 @@ url: /en/blog/implement-statistics-on-your-java-project/
 </p>
 
 <p style="text-align: justify">
-  I developed this project on Java and it&#8217;s running on Apache Tomcat 7. A few months ago I developed statistics and I gave the results on tables but every one likes to see the data on charts so I decided to implement it. I decided to use for this porpuse <span class="lang:default highlight:0 decode:true  crayon-inline">PrimeFaces</span>, a component library for <span class="lang:default highlight:0 decode:true  crayon-inline">JSF</span>. Here I&#8217;ll tell you how easy was this process and how happy the users were.
+  I developed this project on Java and it's running on Apache Tomcat 7. A few months ago I developed statistics and I gave the results on tables but every one likes to see the data on charts so I decided to implement it. I decided to use for this porpuse <span class="lang:default highlight:0 decode:true  crayon-inline">PrimeFaces</span>, a component library for <span class="lang:default highlight:0 decode:true  crayon-inline">JSF</span>. Here I'll tell you how easy was this process and how happy the users were.
 </p>
 
 <h2 style="text-align: justify">
@@ -23,7 +23,7 @@ url: /en/blog/implement-statistics-on-your-java-project/
 </h2>
 
 <p style="text-align: justify">
-  Adding this technology to my project was really easy, I just copied the jar files to the lib directory of my project (I don&#8217;t use maven on this project).
+  Adding this technology to my project was really easy, I just copied the jar files to the lib directory of my project (I don't use maven on this project).
 </p>
 
 <p style="text-align: justify">
@@ -116,7 +116,7 @@ url: /en/blog/implement-statistics-on-your-java-project/
 </h2>
 
 <p style="text-align: justify">
-  Let&#8217;s test if JSF works on the project. We will create a file with xhtml extension like this:
+  Let's test if JSF works on the project. We will create a file with xhtml extension like this:
 </p>
 
 <pre class="lang:xhtml decode:true ">&lt;!DOCTYPE html&gt;
@@ -133,7 +133,7 @@ url: /en/blog/implement-statistics-on-your-java-project/
 </p>
 
 <p style="text-align: justify">
-  Until now we haven&#8217;t use PrimeFaces, let&#8217;s see an example to test if PrimeFaces works in the project. This file should draw a rich editor in your browser.
+  Until now we haven't use PrimeFaces, let's see an example to test if PrimeFaces works in the project. This file should draw a rich editor in your browser.
 </p>
 
 <pre class="lang:xhtml mark:4,7 decode:true ">&lt;!DOCTYPE html&gt;
@@ -151,7 +151,7 @@ url: /en/blog/implement-statistics-on-your-java-project/
 </h2>
 
 <p style="text-align: justify">
-  If JSF and PrimeFaces are already working we can work on our goal. I&#8217;ll show you how easy is to create a chart to represent your data.
+  If JSF and PrimeFaces are already working we can work on our goal. I'll show you how easy is to create a chart to represent your data.
 </p>
 
 <h3 style="text-align: justify">
@@ -159,7 +159,7 @@ url: /en/blog/implement-statistics-on-your-java-project/
 </h3>
 
 <p style="text-align: justify">
-  I&#8217;ll start creating the view. It&#8217;s surprising that writing just one line we will have a chart.
+  I'll start creating the view. It's surprising that writing just one line we will have a chart.
 </p>
 
 <pre class="lang:xhtml mark:11 decode:true" title="stat_bar_ranking_clients.xhtml">&lt;html xmlns="http://www.w3.org/1999/xhtml" 
@@ -259,7 +259,7 @@ public class RankigProduct implements Serializable {
 </h2>
 
 <p style="text-align: justify">
-  To sum up I want you to realise how easy is to draw a chart using PrimeFaces. We&#8217;ve just created two files: the view and the Bean and JSF know how to connect them and how to draw the chart. It&#8217;s amazing!
+  To sum up I want you to realise how easy is to draw a chart using PrimeFaces. We've just created two files: the view and the Bean and JSF know how to connect them and how to draw the chart. It's amazing!
 </p>
 
 <p style="text-align: justify">

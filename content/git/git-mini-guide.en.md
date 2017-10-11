@@ -19,14 +19,14 @@ Status files:
   * **Tracked**:
   * **Committed** (unmodified) means data file is stored in your local database.
   * **Modified** means your file has been modified and these changes are not stored in the local database.
-  * **Staged** means you&#8217;ve marked the file to be committed in the next commit.
+  * **Staged** means you've marked the file to be committed in the next commit.
   * **Untracked**: Files which are not in the git database nor in the staging area.
 
 ![One area for each state][1]
 
 * * *
 
-**Repository**. The `.git` directory is where the database and metadata are and it&#8217;s what is copied when you clone a repository from other computer. **Working directory**. A directory where you have a copy of a version of the project. It&#8217;s where you work and use the files. **Staging area**. AKA `index`. It&#8217;s a file within the .git directory to store this information.
+**Repository**. The `.git` directory is where the database and metadata are and it's what is copied when you clone a repository from other computer. **Working directory**. A directory where you have a copy of a version of the project. It's where you work and use the files. **Staging area**. AKA `index`. It's a file within the .git directory to store this information.
 
 ### Getting help
 
@@ -39,7 +39,7 @@ man git-
 
 There are 3 config levels:
 
-  * **System level**. File `/etc/gitconfig`: it&#8217;s for _all the users_ in the system. You can read it with this command: `git config --system --list` keyword: **system**
+  * **System level**. File `/etc/gitconfig`: it's for _all the users_ in the system. You can read it with this command: `git config --system --list` keyword: **system**
   * **User level**. File `~/.gitconfig`: configuration for _your user_. You can read it with this command: `git config --global --list` keyword: **global**
   * **Repository level**. File `.git/config` within the working directory. You can read it with this command: `git config --list` in the working directory.
 
@@ -112,7 +112,7 @@ You can set your graphical tool to compare changes, see what ara available: `git
 <pre class="lang:sh decode:true ">$ git commit -v
 </pre>
 
-Using the `-v` flag you&#8217;ll see the diff before add the comment.
+Using the `-v` flag you'll see the diff before add the comment.
 
 <pre class="lang:sh decode:true ">$ git commit -a
 </pre>
@@ -124,7 +124,7 @@ Using the `-a` flag git will perform the add operation for you before the commit
 <pre class="lang:sh decode:true ">$ git log -p -2 --stat
 </pre>
 
-You can specify the number of commits you want to see, in this case two. Using the `-p` argument you&#8217;ll see the changes in files (diff).
+You can specify the number of commits you want to see, in this case two. Using the `-p` argument you'll see the changes in files (diff).
 
 You can also use:
 
@@ -143,7 +143,7 @@ You can use the param `--graph` with `oneline` and with `format` and see the bra
 
 You can use the param `--decorate` to see the branch we are working on.
 
-You can use the param `--all` to see info related with other branchs apart from the branch where you&#8217;re work on.
+You can use the param `--all` to see info related with other branchs apart from the branch where you're work on.
 
 #### Filtering
 
@@ -167,7 +167,7 @@ You can use the param `--all` to see info related with other branchs apart from 
 <pre class="lang:sh decode:true ">$ git log -StoString
 </pre>
 
-This will look for the text &#8216;toString&#8217;
+This will look for the text &#8216;toString'
 
 ##### Searching changes in files as of a directory
 
@@ -209,7 +209,7 @@ You can revert all your changes in a file using
 <pre class="lang:sh decode:true ">git checkout --
 </pre>
 
-as long as your file is unstaged, unless you can unstage it before. This is dangerous because you&#8217;ll lose every change you&#8217;ve made. You can use this other way: stage and branch.
+as long as your file is unstaged, unless you can unstage it before. This is dangerous because you'll lose every change you've made. You can use this other way: stage and branch.
 
 ## Managing remotes
 
@@ -238,7 +238,7 @@ This way you can read information about branches, for instance.
 <pre class="lang:sh decode:true ">git fetch origin
 </pre>
 
-Retrieves information from the remote server but **your work won&#8217;t be modified**, you&#8217;ll have to merge manually.
+Retrieves information from the remote server but **your work won't be modified**, you'll have to merge manually.
 
 <pre class="lang:sh decode:true ">git pull
 </pre>
@@ -268,7 +268,7 @@ You can know which branches have been merged or not into this branch using `--me
 <pre class="lang:sh decode:true ">git branch --merged
 </pre>
 
-It&#8217;s important to note that this information is only since the last time you fetched from remote server; if you want to be up to date you should fetch first:
+It's important to note that this information is only since the last time you fetched from remote server; if you want to be up to date you should fetch first:
 
 <pre class="lang:sh decode:true ">git fetch --all; git branch -vv
 </pre>
@@ -278,16 +278,16 @@ It&#8217;s important to note that this information is only since the last time y
 <pre class="lang:sh decode:true ">git branch
 </pre>
 
-This command creates a new branch but **don&#8217;t switch to that branch**.
+This command creates a new branch but **don't switch to that branch**.
 
 ### Switching branches
 
 <pre class="lang:sh decode:true ">git checkout
 </pre>
 
-This command moves HEAD to the branch name. Remember that the files will change as well as the history. There isn&#8217;t any problem switching branches even if there is some untracked file. The file will remain in the folder.
+This command moves HEAD to the branch name. Remember that the files will change as well as the history. There isn't any problem switching branches even if there is some untracked file. The file will remain in the folder.
 
-If you want to switch branch but there are files modified which you don&#8217;t want to stage nor commit because the work is not done so you have another option, it is **to stash** it:
+If you want to switch branch but there are files modified which you don't want to stage nor commit because the work is not done so you have another option, it is **to stash** it:
 
 <pre class="lang:sh decode:true ">git stash
 git status # working directory clean
@@ -310,9 +310,9 @@ There are many other helpful options, take a look: [http://git-scm.com/book/en/v
 git merge
 </pre>
 
-If I&#8217;m working on the branch &#8216;P100&#8217; but I want to have the latest changes made on the master I can run a `git merge master` from the P100 branch.
+If I'm working on the branch &#8216;P100' but I want to have the latest changes made on the master I can run a `git merge master` from the P100 branch.
 
-When there&#8217;s a conflict you can see the files haven&#8217;t been merged by typing `git status` and looking for files Unmerged paths. Using `git mergetool` you can see the conflict in a graphical application.
+When there's a conflict you can see the files haven't been merged by typing `git status` and looking for files Unmerged paths. Using `git mergetool` you can see the conflict in a graphical application.
 
 Once you resolved the conflict you should add the file to the staging area.
 
@@ -333,14 +333,14 @@ You can do it just pushing your branch:
 <pre class="lang:sh decode:true ">git push origin paul-branch
 </pre>
 
-When a colleague fetch the information from origin, the new branch is retrieved but they will have a pointer to the remote branch (origin/paul-branch) but not a local branch called &#8216;paul-branch&#8217; so they aren&#8217;t able to work on it.
+When a colleague fetch the information from origin, the new branch is retrieved but they will have a pointer to the remote branch (origin/paul-branch) but not a local branch called &#8216;paul-branch' so they aren't able to work on it.
 
 If you want to work on a remote branch created by other colleague you can switch to that branch with this command, this way git retrieve the branch from the remote server and creates a local branch and switch to it:
 
 <pre class="lang:sh decode:true ">git checkout -b paul-branch origin/paul-branch
 </pre>
 
-There&#8217;s an alias of this command:
+There's an alias of this command:
 
 <pre class="lang:sh decode:true ">git checkout --track origin/paul-branch
 </pre>
@@ -349,7 +349,7 @@ This type of branch is called **track branch**. Git associate this local branch 
 
 ### Rebase
 
-Same goal as &#8216;merge&#8217;: fusion a number of branches. The difference is, as you can [read on the book][6], there is using rebase looks like if the changes of your branch were have done after the last change on the master branch.
+Same goal as &#8216;merge': fusion a number of branches. The difference is, as you can [read on the book][6], there is using rebase looks like if the changes of your branch were have done after the last change on the master branch.
 
 <pre class="lang:sh decode:true ">git checkout my-branch
 git rebase master

@@ -24,7 +24,7 @@ weight: 10
 </ul>
 
 <p style="text-align: justify">
-  You don&#8217;t need to specify the type of a variable in its name so avoid using special words for programmers such as <em>List</em> or <em>Set</em> because the type of this variable may not be a <em>List</em> or a <em>Set</em> and this would be confusing; even if it is don&#8217;t use it because this fact can change in the future.
+  You don't need to specify the type of a variable in its name so avoid using special words for programmers such as <em>List</em> or <em>Set</em> because the type of this variable may not be a <em>List</em> or a <em>Set</em> and this would be confusing; even if it is don't use it because this fact can change in the future.
 </p>
 
 <p style="text-align: justify">

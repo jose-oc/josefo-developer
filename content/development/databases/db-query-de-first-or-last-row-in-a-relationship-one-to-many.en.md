@@ -9,7 +9,7 @@ tags:
 
 ---
 <p style="text-align: justify">
-  Let&#8217;s put an example.
+  Let's put an example.
 </p>
 
 <p style="text-align: justify">
@@ -17,7 +17,7 @@ tags:
 </p>
 
 <p style="text-align: justify">
-  We&#8217;ll create both tables: book and author with a relationship one-to-many. We&#8217;ll write some data to test the sql.
+  We'll create both tables: book and author with a relationship one-to-many. We'll write some data to test the sql.
 </p>
 
 <pre class="lang:pgsql decode:true">CREATE TABLE author (id serial, name varchar(255));
@@ -56,4 +56,4 @@ Notice that the author number 3 published two books in the same date but we get 
 
 &nbsp;
 
-For this example I&#8217;ve used postgresql but you can use this sql in any database.
+For this example I've used postgresql but you can use this sql in any database.

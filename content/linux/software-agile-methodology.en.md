@@ -26,8 +26,8 @@ The time to build a new feature is mostly the time caused by accidental complica
 To solve this issue -> TDD. Steps:
 
   1. Think
-  2. Write a test. Wait. Ask how much that test could be smaller, simpler. If you get to have it simpler you&#8217;re removing the possibility of accidental complications.
-  3. Run the test. It should fail, otherwise ti&#8217;s because you wrote too much code previously. This can cause accidental complications.
+  2. Write a test. Wait. Ask how much that test could be smaller, simpler. If you get to have it simpler you're removing the possibility of accidental complications.
+  3. Run the test. It should fail, otherwise ti's because you wrote too much code previously. This can cause accidental complications.
   4. Write just enough code to make the test pass, not more code.
   5. Then refactor your code.
 

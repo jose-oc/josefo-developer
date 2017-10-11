@@ -6,7 +6,7 @@ date: 2014-10-12T22:45:27+00:00
 url: /en/blog/configure-eclipse-to-have-exact-imports/
 
 ---
-If you want to configure your eclipse IDE to have exact imports in your Java classes you should go to your eclipse settings, browse to _&#8216;organize imports&#8217;_ in the Java section and then type 99 instead of 1 in <span class="lang:default highlight:0 decode:true  crayon-inline ">number of imports needed for .*</span>
+If you want to configure your eclipse IDE to have exact imports in your Java classes you should go to your eclipse settings, browse to _&#8216;organize imports'_ in the Java section and then type 99 instead of 1 in <span class="lang:default highlight:0 decode:true  crayon-inline ">number of imports needed for .*</span>
 
 This way you will chage this:
 

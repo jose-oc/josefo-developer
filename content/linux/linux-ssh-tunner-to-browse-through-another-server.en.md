@@ -24,7 +24,7 @@ Secondly we have to configure the browser to use **manual proxy**.
 
 <a href="http://www.joseoc.es/wp-content/uploads/2016/01/firefox_network_config_to_use_proxy.png" rel="attachment wp-att-426"><img class="aligncenter size-medium wp-image-426" src="http://www.joseoc.es/wp-content/uploads/2016/01/firefox_network_config_to_use_proxy-242x300.png" alt="firefox_network_config_to_use_proxy" width="242" height="300" srcset="https://www.joseoc.es/wp-content/uploads/2016/01/firefox_network_config_to_use_proxy-242x300.png 242w, https://www.joseoc.es/wp-content/uploads/2016/01/firefox_network_config_to_use_proxy.png 477w" sizes="(max-width: 242px) 100vw, 242px" /></a>
 
-Notice that if we want to access to the web application using localhost address, because now it&#8217;s like if we were browsing from the server, we have to remove the text _&#8216;localhost&#8217;_ from the field _&#8216;No proxy for:&#8217;._
+Notice that if we want to access to the web application using localhost address, because now it's like if we were browsing from the server, we have to remove the text _&#8216;localhost'_ from the field _&#8216;No proxy for:'._
 
 Now we can check the public IP is different from the IP we were using before setting this configuration.
 

@@ -9,7 +9,7 @@ tags:
   - terminal
 
 ---
-When I use the terminal on Linux and I write a lot of commands with long responses I got lost very often, that&#8217;s why I decided to change the prompt I use in order to identify it easily.
+When I use the terminal on Linux and I write a lot of commands with long responses I got lost very often, that's why I decided to change the prompt I use in order to identify it easily.
 
 To do this you just have to modify the environment variable PS1 by adding this line at the end of the file ~/.bashrc:
 

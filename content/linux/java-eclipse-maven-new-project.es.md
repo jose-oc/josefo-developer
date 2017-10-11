@@ -17,4 +17,4 @@ Si tienes un proyecto maven que quieres tener en eclipse puedes ejecutar este co
 
 &nbsp;
 
-Y luego en eclipse importar un &#8216;proyecto existente&#8217;.
+Y luego en eclipse importar un &#8216;proyecto existente'.

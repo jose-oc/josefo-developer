@@ -66,7 +66,7 @@ WITH repe as (
 )
 insert into temporal.deleted_prices (select * from repe);</pre>
 
-He usado una funcionalidad que ofrece PostgreSQL que me encanta, las **<span style="text-decoration: underline">Common Table Expressions (CTE)</span>**. Se trata del bloque que comienza con WITH, fíjate que dentro del WITH elimino las filas de la tabla y las filas que se eliminan se devuelven en formato de tabla (que he llamado &#8216;repe&#8217;) y que puedo usar después. Una maravilla cómo las CTE facilitan el trabajo.
+He usado una funcionalidad que ofrece PostgreSQL que me encanta, las **<span style="text-decoration: underline">Common Table Expressions (CTE)</span>**. Se trata del bloque que comienza con WITH, fíjate que dentro del WITH elimino las filas de la tabla y las filas que se eliminan se devuelven en formato de tabla (que he llamado &#8216;repe') y que puedo usar después. Una maravilla cómo las CTE facilitan el trabajo.
 
 Ya estamos terminando, ya hemos eliminado la información que estaba obsoleta para insertar la nueva, pero antes compruebo si el paso anterior se hizo correctamente chequeando si se han eliminado todas las filas que tenía en la tabla tmp.
 
