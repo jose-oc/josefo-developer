@@ -1,11 +1,6 @@
 ---
 title: Subir los commits a un servidor remoto
-author: Jose OC
-type: post
 date: 2015-06-05T14:08:59+00:00
-url: /blog/subir-los-commits-a-un-servidor-remoto/
-categories:
-  - Terminal
 tags:
   - git
 

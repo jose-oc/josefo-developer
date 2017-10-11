@@ -1,9 +1,6 @@
 ---
 title: Push local branch to remote and track it
-author: Jose OC
-type: post
 date: 2015-06-05T14:00:05+00:00
-url: /en/blog/push-local-branch-to-remote-and-track-it/
 tags:
   - git
 

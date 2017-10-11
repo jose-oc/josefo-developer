@@ -1,9 +1,6 @@
 ---
 title: Corregir el último commit en Git
-author: Jose OC
-type: post
 date: 2015-06-12T17:08:24+00:00
-url: /blog/corregir-el-ultimo-commit-en-git/
 categories:
   - Terminal
 tags:

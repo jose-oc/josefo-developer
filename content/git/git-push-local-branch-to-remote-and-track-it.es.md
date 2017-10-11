@@ -1,11 +1,6 @@
 ---
 title: Subir una rama local al servidor y seguirla
-author: Jose OC
-type: post
 date: 2015-06-05T14:01:23+00:00
-url: /blog/subir-una-rama-local-al-servidor-y-seguirla/
-categories:
-  - Terminal
 tags:
   - git
 

@@ -13,6 +13,10 @@ defaultContentLanguageInSubdir= true
 # To build the project into this folder (docs is the one used by github to create the static website)
 publishDir = "docs"
 
+[blackfriday]
+  angledQuotes = true
+  hrefTargetBlank = true
+
 [params]
   editURL = "https://jose-oc.github.io/josefo-developer/content/"
   description = "Josefo developer. IT notes"

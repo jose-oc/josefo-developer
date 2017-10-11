@@ -1,17 +1,14 @@
 ---
-title: Mini guía GIT
-author: Jose OC
-type: post
-date: 2015-08-30T05:46:21+00:00
-url: /blog/mini-guia-git/
-categories:
-  - Coding
-  - Terminal
+title: mini git guide
+date: 2015-05-16T10:02:06+00:00
 tags:
   - git
 
+
+
+
 ---
-# GIT &#8211; Mis notas
+# GIT &#8211; My notes
 
 ## Bases
 
@@ -250,7 +247,7 @@ This commando fetch the information and merge automatically.
 
 ### Sending your commits to remote server
 
-<pre class="lang:sh decode:true">git push
+<pre class="lang:sh decode:true ">git push
 git push origin master
 </pre>
 
@@ -385,11 +382,11 @@ echo ehthumbs_vista.db &gt;&gt; ~/.gitignore
 
 Set Rebase by default:
 
-<pre class="lang:sh decode:true">git config branch.master.rebase true
+<pre class="lang:sh decode:true ">git config branch.master.rebase true
 git config --global branch.autosetuprebase always
 </pre>
 
-To push to the current branch
+To Push to the current branch
 
 <pre class="prettyprint"><code>&lt;span class="pln">git config &lt;/span>&lt;span class="pun">--&lt;/span>&lt;span class="kwd">global&lt;/span>&lt;span class="pln"> push&lt;/span>&lt;span class="pun">.&lt;/span>&lt;span class="kwd">default&lt;/span>&lt;span class="pln"> current&lt;/span></code></pre>
 
