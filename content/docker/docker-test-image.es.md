@@ -1,39 +1,26 @@
 ---
 title: Testeando una imagen docker
-author: Jose OC
-type: post
 date: 2016-05-04T17:33:28+00:00
-url: /blog/testeando-una-imagen-docker/
 categories:
   - Coding
 tags:
   - docker
 
 ---
-<p style="text-align: justify">
   Los tests nos aseguran que el trabajo hecho es el esperado y también nos aseguran que en modificaciones futuras seguimos teniendo el trabajo que necesitamos.
-</p>
 
-<p style="text-align: justify">
   Las imágenes docker también pueden ser probadas para asegurar que cumplan con nuestros requisitos. Para probarlas podemos usar ruby.
-</p>
 
-<p style="text-align: justify">
   Además de tener ruby instalado necesitamos tener instalado su bundle. En openSUSE lo podemos instalar así:
-</p>
 
-<p style="text-align: justify">
+```bash
   sudo zypper install ruby-devel ruby2.1-rubygem-bundler
-</p>
+```
 
-<p style="text-align: justify">
+
   La idea es que ruby haga correr un contenedor de la imagen que queremos testear y ejecute sobre ella ciertos comandos verificando la salida. También se pueden verificar que existan ficheros o directorios, que contengan cierta información o que la configuración de docker sea la adecuada. Para ver toda la variedad de aserciones que podemos hacer podemos consultar la API de ruby para testear el contenedor docker aquí: http://serverspec.org/resource_types.html
-</p>
 
-<p style="text-align: justify">
-  Para poner esto en práctica he añadido algunos de estos tests al proyecto en el que <a href="http://www.joseoc.es/blog/dockerizando-una-aplicacion-java/">dockericé una aplicación java</a>, podéis consultarlo en mi github.
-</p>
+  Para poner esto en práctica he añadido algunos de estos tests al proyecto en el que [*dockericé*]({{< relref "docker/dockerizing-java-app.es.md" >}}) una aplicación java</a>, podéis consultarlo en mi github.
 
-<p style="text-align: justify">
+
   Allí encontrarás toda la información sobre cómo ejecutar los tests y cómo se han hecho.
-</p>
