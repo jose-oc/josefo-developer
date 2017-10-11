@@ -1,10 +1,7 @@
 ---
 title: Functions
-author: Jose OC
-type: post
 date: 2015-05-04T04:48:53+00:00
-url: /en/blog/functions/
-
+weight: 20
 ---
 # Use functions, my friend
 
@@ -25,7 +22,8 @@ Functions should have one of these purposes, but **not both** of them:
 
 Following the rule that say that a function must do just one thing, why don&#8217;t give the responsibility of do the try-catch to a function? It is convert this:
 
-<pre class="lang:java decode:true">public void doSomething() {
+```java
+public void doSomething() {
     try {
         callA();
         callB();
@@ -33,11 +31,13 @@ Following the rule that say that a function must do just one thing, why don&#821
     } catch (Exception e) {
         log.error("message", e);
     }
-}</pre>
+}
+```
 
 into this:
 
-<pre class="lang:java decode:true" title="Extract try/catch">public void doSomething() {
+```java
+public void doSomething() {
     try {
         manageTheProcess();
     } catch (Exception e) {
@@ -53,6 +53,7 @@ private void manageTheProcess() {
 
 private void manageTheException(Exception e) {
     log.error("message", e);
-}</pre>
+}
+```
 
 This way we have a method were we treat the exception and another one where we write the correct process, everything is cleaner.

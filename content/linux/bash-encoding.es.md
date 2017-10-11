@@ -1,9 +1,6 @@
 ---
 title: Establecer codificación en bash
-author: Jose OC
-type: post
 date: 2015-01-01T15:45:24+00:00
-url: /blog/establecer-codificacion-en-bash/
 categories:
   - Linux
   - Terminal

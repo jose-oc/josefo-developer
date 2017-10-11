@@ -1,10 +1,7 @@
 ---
 title: Good names for good code
-author: Jose OC
-type: post
 date: 2015-05-02T16:16:44+00:00
-url: /en/blog/good-names-for-good-code/
-
+weight: 10
 ---
 <h1 style="text-align: justify">
   Naming
@@ -66,7 +63,8 @@ url: /en/blog/good-names-for-good-code/
   When constructor are overloaded use <strong>static factory methods with names that describe the arguments</strong> and turn the constructor into private.
 </p>
 
-<pre class="lang:java decode:true " title="Factory method">class Packet {
+```java
+class Packet {
   private Packet() {
     // construct the instance
   }
@@ -77,8 +75,8 @@ url: /en/blog/good-names-for-good-code/
   public static Packet parseFromString(String[] data) {
     // parse bytes and construct the instance
   }
-}</pre>
+}
+```
 
-&nbsp;
 
 A good summary: <http://objectmentor.com/resources/articles/Naming.pdf>

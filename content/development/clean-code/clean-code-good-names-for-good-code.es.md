@@ -1,9 +1,7 @@
 ---
 title: Buenos nombres para un buen código
-author: Jose OC
-type: post
 date: 2015-05-02T16:33:49+00:00
-url: /blog/buenos-nombres-para-un-buen-codigo/
+weight: 10
 categories:
   - Coding
 
@@ -62,7 +60,8 @@ Si estás trabajando en una parte de código donde no se utiliza un patrón de d
   Cuando en una clase queremos tener varias formas de construir las instancias en función de los argumentos de entrada que tengamos es buena práctica crear métodos estáticos que los construyan y cambiar la visibilidad del constructor de la clase a privado. De esta forma seremos capaces de construir <strong>métodos con nombres que describan los argumentos</strong> que se le pasan.
 </p>
 
-<pre class="lang:java decode:true" title="Factory method">class Packet {
+```java
+class Packet {
   private Packet() {
     // construct the instance
   }
@@ -73,6 +72,7 @@ Si estás trabajando en una parte de código donde no se utiliza un patrón de d
   public static Packet parseFromString(String[] data) {
     // parse bytes and construct the instance
   }
-}</pre>
+}
+```
 
 Un buen resumen: <http://objectmentor.com/resources/articles/Naming.pdf>

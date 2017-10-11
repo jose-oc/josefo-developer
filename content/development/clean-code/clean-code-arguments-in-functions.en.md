@@ -1,10 +1,7 @@
 ---
 title: Arguments in functions
-author: Jose OC
-type: post
 date: 2015-05-05T04:59:09+00:00
-url: /en/blog/arguments-in-functions/
-
+weight: 30
 ---
 <h1 style="text-align: justify">
   Number of arguments
@@ -40,17 +37,19 @@ url: /en/blog/arguments-in-functions/
 </h1>
 
 <p style="text-align: justify">
-  A function is supposed to get any arguments and it can give a result as the return value but sometimes we find functions which use output arguments, this is <strong>arguments</strong> which <strong>will be modified inside de function</strong> so that we get the result of the function in it. We are not used to this and it is more difficult to read and understand besides we don&#8217;t know which of the arguments of the function are going to change. Remember that the arguments in Java are always passed by value but if they are objects their content can be changed (read this <a href="http://www.joseoc.es/blog/parametros-por-valor-o-por-referencia-en-java/">post</a>).
+  A function is supposed to get any arguments and it can give a result as the return value but sometimes we find functions which use output arguments, this is <strong>arguments</strong> which <strong>will be modified inside de function</strong> so that we get the result of the function in it. We are not used to this and it is more difficult to read and understand besides we don&#8217;t know which of the arguments of the function are going to change. Remember that the arguments in Java are always passed by value but if they are objects their content can be changed (read this <a href="http://www.joseoc.com/blog/parametros-por-valor-o-por-referencia-en-java/">post</a>).
 </p>
 
 <p style="text-align: justify">
   We can see an example of this use of output arguments in the ByteBuffer class:
 </p>
 
-<pre class="lang:java mark:3 decode:true " title="output argument example">ByteBuffer aByteBuffer = ByteBuffer.wrap( anArrayOfBytes );
+```java
+ByteBuffer aByteBuffer = ByteBuffer.wrap( anArrayOfBytes );
 array[] output = new array[64];
 aByteBuffer.get(output); 
 // output has 64 bytes from aByteBuffer</pre>
+```
 
 In this case the method get of ByteBuffer change the value of its argument.
 
@@ -71,12 +70,14 @@ There are three main reasons to pass one argument:
 
 Using a flag argument, typically a boolean argument, is a bad practice since it is showing that the functions has at least two different things to do, one for each value of the flag. Instead of this is better to split the function in a number of them.
 
-<pre class="lang:java decode:true " title="avoid the use of flags">// rather than
+```java
+// rather than
 void doSomething( boolean flag );
 
 // use something like this
 void doSomethingForCaseA();
 void doSomethingForCaseB();</pre>
+```
 
 You may need to compare the flag value, in this case you could turn your original method into a private one and the other two public methods could call the first one.
 
@@ -93,4 +94,6 @@ When you find a function with more than one argument think of a way of change it
 
 There are functions with a number of arguments that are treated in the same way. This arguments are taken as a List and they are counted as just one. For instance:
 
-<span class="lang:java decode:true  crayon-inline ">String.format( String format, Object… args );</span>
+```java
+String.format( String format, Object… args );
+```

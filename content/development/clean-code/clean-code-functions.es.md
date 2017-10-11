@@ -1,9 +1,7 @@
 ---
 title: Funciones
-author: Jose OC
-type: post
 date: 2015-05-04T04:49:44+00:00
-url: /blog/funciones/
+weight: 20
 categories:
   - Coding
 
@@ -45,7 +43,8 @@ Las funciones deben tener uno solo de estos propósitos, no ambos:
   Por ejemplo, si tenemos algo así:
 </p>
 
-<pre class="lang:java decode:true">public void doSomething() {
+```java
+public void doSomething() {
     try {
         callA();
         callB();
@@ -53,13 +52,15 @@ Las funciones deben tener uno solo de estos propósitos, no ambos:
     } catch (Exception e) {
         log.error("message", e);
     }
-}</pre>
+}
+```
 
 <p style="text-align: justify">
   convertirlo en esto:
 </p>
 
-<pre class="lang:java decode:true" title="Extract try/catch">public void doSomething() {
+```java
+public void doSomething() {
     try {
         manageTheProcess();
     } catch (Exception e) {
@@ -75,7 +76,8 @@ private void manageTheProcess() {
 
 private void manageTheException(Exception e) {
     log.error("message", e);
-}</pre>
+}
+```
 
 <p style="text-align: justify">
   De esta forma tendremos un método que trata la excepción, solamente eso, y otro donde se desarrolla el proceso donde se espera que todo vaya bien. Todo queda más claro.

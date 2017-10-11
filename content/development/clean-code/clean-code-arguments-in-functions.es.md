@@ -1,9 +1,7 @@
 ---
 title: Argumentos en funciones
-author: Jose OC
-type: post
 date: 2015-05-05T04:58:58+00:00
-url: /blog/argumentos-en-funciones/
+weight: 30
 categories:
   - Coding
 
@@ -40,17 +38,19 @@ Recuerda que estamos trabajando en programación orientada a objetos luego podem
 </p>
 
 <p style="text-align: justify">
-  Un código que se comporte así es difícil de leer, no estamos acostumbrados a él. No hay forma de saberlo a priori. Recuerda que Java pasa todos los argumentos por valor aunque si se tratan de objetos su contenido puede ser modificado, como se explicó en este <a href="http://www.joseoc.es/blog/parametros-por-valor-o-por-referencia-en-java/">post</a>.
+  Un código que se comporte así es difícil de leer, no estamos acostumbrados a él. No hay forma de saberlo a priori. Recuerda que Java pasa todos los argumentos por valor aunque si se tratan de objetos su contenido puede ser modificado, como se explicó en este <a href="http://www.joseoc.com/blog/parametros-por-valor-o-por-referencia-en-java/">post</a>.
 </p>
 
 <p style="text-align: justify">
   Podemos ver un ejemplo de funciones que usan este tipo de comportamiento en la clase ByteBuffer de java:
 </p>
 
-<pre class="lang:java mark:3 decode:true" title="output argument example">ByteBuffer aByteBuffer = ByteBuffer.wrap( anArrayOfBytes );
+```java
+ByteBuffer aByteBuffer = ByteBuffer.wrap( anArrayOfBytes );
 array[] output = new array[64];
 aByteBuffer.get(output); 
-// output has 64 bytes from aByteBuffer</pre>
+// output has 64 bytes from aByteBuffer
+```
 
 En este caso el método get de ByteBuffer cambia el valor de su argumento.
 
@@ -68,12 +68,14 @@ Hay tres razones para pasar un solo argumento a una función:
 
 Usar un argumento de tipo flag, típicamente un boolean, es una mala práctica ya que está demostrando que la función tiene al menos dos diferentes tareas que hacer, una por cada valor del flag. En lugar de esto es mejor dividir la función en varias.
 
-<pre class="lang:java decode:true" title="avoid the use of flags">// rather than
+```java
+// rather than
 void doSomething( boolean flag );
 
 // use something like this
 void doSomethingForCaseA();
-void doSomethingForCaseB();</pre>
+void doSomethingForCaseB();
+```
 
 Si necesitaras comparar el valor del flag en la función puede ser buena idea cambiar la función original a privada y crear dos nuevas que llamen a ésta con el valor del flag adecuado.
 
@@ -83,7 +85,6 @@ Además de la legibilidad, el problema cuando usas más de un argumento es el or
 
 Cuando te encuentres con una función con más de un argumento piensa en la forma de cambiarla:
 
-&nbsp;
 
   * Puedes crear una nueva clase que envuelva todos los argumentos ya que puede tener sentido conceptual tenerlos todos encapsulados en una clase.
   * Puedes convertir algunos de ellos en campos de la clase, miembros de la clase.
@@ -92,4 +93,6 @@ Cuando te encuentres con una función con más de un argumento piensa en la form
 
 Hay funciones que tienen un número indeterminado de argumentos que se tratan todos de la misma manera, estos argumentos son tomados como una lista y se cuentan como si fueran uno solo, por ejemplo:
 
-<span class="lang:java decode:true  crayon-inline ">String.format( String format, Object… args );</span>
+```java
+String.format( String format, Object… args );
+```
