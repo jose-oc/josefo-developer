@@ -1,9 +1,6 @@
 ---
 title: Patrón Singleton en PHP
-author: Jose OC
-type: post
 date: 2014-11-13T10:19:34+00:00
-url: /blog/patron-singleton-en-php/
 categories:
   - Coding
   - PHP
@@ -15,7 +12,8 @@ Un patrón Singleton normal, muy útil para cuidar que un objeto no se instancie
 
 Ojo, en PHP cada conexión al servidor es única, es decir que al contrario que en Java no se guarda nada en memoria entre conexiones (stateless), por tanto el Singleton devolverá una instancia por conexión al servidor web.
 
-<pre class="lang:php decode:true" title="Singleton">class SingletonClass {
+```php
+class SingletonClass {
 
     /**
      * Returns the *Singleton* instance of this class.
@@ -60,6 +58,4 @@ Ojo, en PHP cada conexión al servidor es única, es decir que al contrario que 
     public function __destruct() {}
 
 }
-</pre>
-
-&nbsp;
+```

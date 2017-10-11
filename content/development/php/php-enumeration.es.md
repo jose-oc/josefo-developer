@@ -1,9 +1,6 @@
 ---
 title: Enumerations en PHP
-author: Jose OC
-type: post
 date: 2014-11-07T09:47:33+00:00
-url: /blog/enumerations-en-php/
 categories:
   - Coding
   - PHP
@@ -19,14 +16,15 @@ Aquí dejo la implementación:
 
 La clase que contenga el enum deberá extender a esta clase abstracta:
 
-<pre class="lang:php decode:true ">&lt;?php
+```php
+<?php
 abstract class BasicEnum {
     private static $constCache = NULL;
 
     private static function getConstants() {
         if (self::$constCache === NULL) {
             $reflect = new ReflectionClass(get_called_class());
-            self::$constCache = $reflect-&gt;getConstants();
+            self::$constCache = $reflect->getConstants();
         }
 
         return self::$constCache;
@@ -48,13 +46,15 @@ abstract class BasicEnum {
         return in_array($value, $values, $strict = true);
     }
 }
-?&gt;</pre>
+?>
+```
 
 &nbsp;
 
 Y un ejemplo de enum:
 
-<pre class="lang:php decode:true ">&lt;?php
+```php
+<?php
 
 abstract class Idioma extends BasicEnum {
     const CHINESE = "CH";
@@ -67,8 +67,7 @@ abstract class Idioma extends BasicEnum {
     private function __construct() {}
 }
 
-?&gt;</pre>
-
-&nbsp;
+?>
+```
 
 La forma de usarlo será: <span class="lang:php decode:true  crayon-inline  ">Idioma::ENGLISH</span>
