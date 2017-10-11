@@ -1,9 +1,6 @@
 ---
 title: Singleton para varios tipos de instancias
-author: Jose OC
-type: post
 date: 2014-11-13T15:58:28+00:00
-url: /blog/singleton-para-varios-tipos-de-instancias/
 categories:
   - Coding
   - PHP
@@ -21,7 +18,8 @@ Esta clase implementa un patrón Singleton con la salvedad de tener un parámet
   Pero si cambio el idioma no me debe dar la información del idioma anterior sino del nuevo. Bien, esto lo podemos solucionar con un array de objetos que se instancien siguiendo un Singleton. Este es el código que muestro:
 </p>
 
-<pre class="lang:php decode:true " title="Array de Singleton">class SingletonClass {
+```php
+class SingletonClass {
     private $type;
 
     /**
@@ -72,6 +70,5 @@ Esta clase implementa un patrón Singleton con la salvedad de tener un parámet
 
     public function __destruct() {}
 
-}</pre>
-
-&nbsp;
+}
+```

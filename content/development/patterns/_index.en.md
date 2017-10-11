@@ -1,5 +1,5 @@
 +++
-title = "Software development"
+title = "Design patterns"
 description = ""
 weight = 1
 alwaysopen = false

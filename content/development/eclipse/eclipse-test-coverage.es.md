@@ -1,9 +1,6 @@
 ---
 title: Test Coverage
-author: Jose OC
-type: post
 date: 2015-04-29T14:09:12+00:00
-url: /blog/test-coverage/
 categories:
   - Coding
   - java

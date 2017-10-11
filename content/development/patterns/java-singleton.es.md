@@ -1,9 +1,6 @@
 ---
 title: Singleton en Java
-author: Jose OC
-type: post
 date: 2016-04-13T16:40:13+00:00
-url: /blog/singleton-en-java/
 categories:
   - Coding
   - java
@@ -23,7 +20,8 @@ tags:
   Aquí tenemos un ejemplo de lo sencillo que es esta implementación obtenido de la wikipedia:
 </p>
 
-<pre class="lang:default decode:true " title="Singleton">public class Something {
+```java
+public class Something {
     private Something() {}
 
     private static class LazyHolder {
@@ -33,7 +31,8 @@ tags:
     public static Something getInstance() {
         return LazyHolder.INSTANCE;
     }
-}</pre>
+}
+```
 
 <p style="text-align: justify">
   Esta implementación además de ser sencilla está probado que es la que mejor rendimiento tiene.

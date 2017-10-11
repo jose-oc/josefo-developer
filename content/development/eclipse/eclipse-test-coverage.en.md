@@ -1,10 +1,14 @@
 ---
 title: Test coverage
-author: Jose OC
-type: post
 date: 2015-05-02T16:45:21+00:00
-url: /en/blog/test-coverage-2/
-
+categories:
+  - Coding
+  - java
+tags:
+  - eclipse
+  - eclipse plugin
+  - Unit Test
+  
 ---
 <p style="text-align: justify">
   There is a fantastic plugin for eclipse which I've been using to analyze the amount of code coverage by tests, this is: <a href="http://www.eclemma.org/" target="_blank"><strong>EclEmma</strong> Java Code Coverage for Eclipse</a>.

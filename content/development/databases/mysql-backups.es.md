@@ -1,9 +1,6 @@
 ---
 title: 'MySQL: Crear backup y restaurarlo'
-author: Jose OC
-type: post
 date: 2014-10-01T23:47:04+00:00
-url: /blog/mysql-crear-backup-y-restaurarlo/
 categories:
   - Bases de datos
   - MySQL
@@ -19,19 +16,21 @@ tags:
 
 Script para crear un backup de la base de datos:
 
-<pre class="lang:sh decode:true" title="Script to create a mysql backup">#!/bin/bash
+```bash
+#!/bin/bash
 
 FILE=/home/jose/backups/bd_name-`date +%Y%m%d_%H%M%S`.sql.gz
 
 mysqldump --password=xxxxx --user=db_user --ignore-table=squema.table1 --ignore-table=squema.table2 db_name | sed -r 's/DEFINER=`[^`]+`@`[^`]+`/DEFINER=CURRENT_USER/g' | gzip &gt; $FILE
 
-echo "Backup finished: $FILE"</pre>
+echo "Backup finished: $FILE"
+```
 
-&nbsp;
 
 Script para restaurar la base de datos:
 
-<pre class="lang:sh decode:true" title="Script to restore mysql database">#!/bin/bash
+```bash
+#!/bin/bash
 
 function helptext {
     echo "Debes indicar el nombre del archivo backup de la Bd que quieres restaurar (archivo comprimido gzip)"
@@ -45,6 +44,5 @@ fi
 
 archivo=$1
 
-cp ${archivo} /tmp/bd.sql.gz && gunzip /tmp/bd.sql.gz && mysql -u usuario -pxxxxx bd_name &lt; /tmp/bd.sql && rm /tmp/bd.sql</pre>
-
-&nbsp;
+cp ${archivo} /tmp/bd.sql.gz && gunzip /tmp/bd.sql.gz && mysql -u usuario -pxxxxx bd_name &lt; /tmp/bd.sql && rm /tmp/bd.sql
+```

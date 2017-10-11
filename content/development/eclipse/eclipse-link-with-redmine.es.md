@@ -1,9 +1,6 @@
 ---
 title: Enlazar eclipse con redmine
-author: Jose OC
-type: post
 date: 2014-10-01T04:15:23+00:00
-url: /blog/enlazar-eclipse-con-redmine/
 categories:
   - Coding
 tags:
@@ -17,6 +14,7 @@ tags:
 </p>
 
 <img class="decoded alignnone" src="http://2.bp.blogspot.com/-0eCQaME0TRg/ULerJTClnEI/AAAAAAAABag/tpAn1Onro8Q/s1600/ec_kepler.png" alt="Eclipse logo" width="211" height="211" /><img class="decoded alignnone" src="https://www.drupal.org/files/project-images/Redmine_logo_0.png" alt="redmine logo" width="212" height="212" />
+
 
 <p style="text-align: justify">
   Hasta ahora utilizaba estas dos herramientas por separado, junto con un control de versiones, pero ya trabajo con ambas herramientas enlazadas de forma que en eclipse puedo marcar en qué tarea estoy trabajando. ¿Qué ventajas tiene esto? Simplemente tratar de no volverme loco entre tantos archivos. Y es que, aunque me gustaría, no puedo trabajar en una tarea hasta terminarla, cerrarla y empezar con otra. Casi siempre tengo que llevar 3 ó 4 tareas a la vez y con cada una de ellas tengo que estar abriendo unos cuantos archivos. Al final acabo no sabiendo qué archivos son de cada tarea o bien cerrándolos porque me pierdo entre ellos. Una solución ante esto es lo que hace un compañero de trabajo: tener varios grupos de ventanas en eclipse (uno por tarea) y en cada grupo están abiertos todos los archivos de dicha tarea.
@@ -55,14 +53,16 @@ Para ello hay que ir al menú:
   En la ventana que se abre hacer clic en Add para añadir un nuevo repositorio de software.
 </p>
 
-[<img class="aligncenter size-medium wp-image-51" src="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.24.49-300x227.png" alt="Add incubator repository to eclipse" width="300" height="227" srcset="https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.24.49-300x227.png 300w, https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.24.49.png 907w" sizes="(max-width: 300px) 100vw, 300px" />][1]
+{{< figure src="/development/eclipse/Captura-de-pantalla-2014-10-01-a-las-05.24.49.png" title="Add incubator repository to eclipse" >}}
 
 <p style="text-align: justify">
   Pon un nombre a este repositorio y la URL. Una vez creado eclipse se conecta al mismo y descarga el software disponible para que selecciones el que quieres instalar:
 </p>
 
 <p style="text-align: justify">
-  <a href="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.28.00.png"><img class="aligncenter size-medium wp-image-52" src="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.28.00-300x225.png" alt="Instalando Mylyn Incubator " width="300" height="225" srcset="https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.28.00-300x225.png 300w, https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.28.00.png 950w" sizes="(max-width: 300px) 100vw, 300px" /></a>Hacer clic en siguiente, aceptar la licencia y el software se empezará a instalar y seguramente cuando termine te pedirá reiniciar eclipse.
+{{< figure src="/development/eclipse/Captura-de-pantalla-2014-10-01-a-las-05.28.00.png" title="Instalando Mylyn Incubator" >}}
+
+  Hacer clic en siguiente, aceptar la licencia y el software se empezará a instalar y seguramente cuando termine te pedirá reiniciar eclipse.
 </p>
 
 ## Configurar eclipse para conectarse a redmine
@@ -71,21 +71,27 @@ Para ello hay que ir al menú:
   Una vez está todo instalado tendrás que abrir la vista &#8216;<em>Task list</em>&#8216;.
 </p>
 
+{{< figure src="/development/eclipse/Captura-de-pantalla-2014-10-01-a-las-05.32.33.png" title="Eclipse - abrir task list" >}}
+
 <p style="text-align: justify">
-  <a href="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.32.33.png"><img class="aligncenter size-medium wp-image-53" src="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.32.33-300x285.png" alt="Eclipse - abrir task list" width="300" height="285" srcset="https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.32.33-300x285.png 300w, https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.32.33.png 511w" sizes="(max-width: 300px) 100vw, 300px" /></a>
+  En la vista que se ha abierto haz clic en el botón derecho y pulsa &#8216;new query'
+
+{{< figure src="/development/eclipse/Captura-de-pantalla-2014-10-01-a-las-05.37.01.png" title="Eclipse - task list - new query" >}}
+
+
+  Esto abre una nueva ventana para seleccionar el repositorio de tareas, es decir, donde eclipse se va a conectar para leer las tareas que va a mostrar en la ventana task list. Por defecto aparece uno solo: Eclipse.org. Tendremos que añadir uno nuevo en el botón &#8216;Add Task Repository'. Si por contra quisiéramos añadir uno de los conectores preconfigurados usaríamos el botón &#8216;Install more connectors'. Ahora se abre una nueva ventana, en ella seleccionamos &#8216;<strong>Web Template (Advanced)</strong>&#8216;.
 </p>
 
 <p style="text-align: justify">
-  En la vista que se ha abierto haz clic en el botón derecho y pulsa &#8216;new query'<a href="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.37.01.png"><img class="aligncenter size-medium wp-image-54" src="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.37.01-300x198.png" alt="Eclipse - task list - new query" width="300" height="198" srcset="https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.37.01-300x198.png 300w, https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.37.01.png 490w" sizes="(max-width: 300px) 100vw, 300px" /></a>Esto abre una nueva ventana para seleccionar el repositorio de tareas, es decir, donde eclipse se va a conectar para leer las tareas que va a mostrar en la ventana task list. Por defecto aparece uno solo: Eclipse.org. Tendremos que añadir uno nuevo en el botón &#8216;Add Task Repository'. Si por contra quisiéramos añadir uno de los conectores preconfigurados usaríamos el botón &#8216;Install more connectors'. Ahora se abre una nueva ventana, en ella seleccionamos &#8216;<strong>Web Template (Advanced)</strong>&#8216;.
-</p>
+  {{< figure src="/development/eclipse/Captura-de-pantalla-2014-10-01-a-las-05.40.38.png" title="Eclipse - conectara a redmine" >}}
 
-<p style="text-align: justify">
-  <a href="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.40.38.png"><img class="aligncenter size-medium wp-image-55" src="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.40.38-232x300.png" alt="Eclipse - conectara a redmine" width="232" height="300" srcset="https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.40.38-232x300.png 232w, https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.40.38.png 614w" sizes="(max-width: 232px) 100vw, 232px" /></a>En la siguiente ventana hay que configurar este conector genérico para que sepa a qué URL conectarse, si debe usar usuario y contraseña para ello y cuál es la URL para obtener las tareas.
+  En la siguiente ventana hay que configurar este conector genérico para que sepa a qué URL conectarse, si debe usar usuario y contraseña para ello y cuál es la URL para obtener las tareas.
 </p>
 
 Para la conexión con redmine introducir los siguientes parámetros:
 
-<pre class="lang:default decode:true">Server:                 http://www.redmine.org -- Replace it with the URL of your Redmine instance
+<pre class="lang:default decode:true">
+Server:                 http://www.redmine.org -- Replace it with the URL of your Redmine instance
 Task URL:               ${serverUrl}/issues/
 New task URL:           ${serverUrl}/projects/appjose/issues/new -- Replace appjose with the identifier of the project used for new tasks
 Query request URL:      ${serverUrl}/issues
@@ -97,7 +103,7 @@ Login Token Pattern:    &lt;input name="authenticity_token" type="hidden" value=
 &nbsp;
 
 <p class="lang:default decode:true">
-  <a href="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.49.06.png"><img class="aligncenter size-medium wp-image-56" src="http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.49.06-300x274.png" alt="Eclipse - conect to redmine repository" width="300" height="274" srcset="https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.49.06-300x274.png 300w, https://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.49.06.png 998w" sizes="(max-width: 300px) 100vw, 300px" /></a>
+  {{< figure src="/development/eclipse/Captura-de-pantalla-2014-10-01-a-las-05.49.06.png" title="Eclipse - conect to redmine repository" >}}
 </p>
 
 <p style="text-align: justify">
@@ -109,5 +115,3 @@ Login Token Pattern:    &lt;input name="authenticity_token" type="hidden" value=
 &nbsp;
 
 Para más información sobre cómo configurar la conexión: <http://www.redmine.org/projects/redmine/wiki/HowTo_Mylyn>
-
- [1]: http://www.joseoc.es/wp-content/uploads/2014/10/Captura-de-pantalla-2014-10-01-a-las-05.24.49.png

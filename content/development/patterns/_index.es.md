@@ -1,5 +1,5 @@
 +++
-title = "Desarrollo Software"
+title = "Patrones de diseño"
 description = ""
 weight = 1
 alwaysopen = false
