@@ -1,9 +1,6 @@
 ---
 title: Liberando espacio en linux con systemd
-author: Jose OC
-type: post
 date: 2016-04-06T14:35:32+00:00
-url: /blog/liberando-espacio-en-linux-con-systemd/
 categories:
   - Linux
   - Terminal

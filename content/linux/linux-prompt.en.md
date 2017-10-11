@@ -1,9 +1,6 @@
 ---
 title: Customized linux prompt
-author: Jose OC
-type: post
 date: 2015-09-22T20:59:01+00:00
-url: /en/blog/372/
 tags:
   - linux
   - terminal
@@ -15,11 +12,11 @@ To do this you just have to modify the environment variable PS1 by adding this l
 
 <pre class="lang:sh decode:true ">export PS1="\[$(ppwd)\]\e[1;33m\u\e[m@\e[1;35m\h\e[m:\e[1;32m\w\e[m\$ \n"</pre>
 
-&nbsp;
 
 Another option is
 
-<pre class="lang:sh decode:true "># Setup a red prompt for root and a green one for users.
+```bash
+# Setup a red prompt for root and a green one for users.
 NORMAL="\[\e[0m\]"
 RED="\[\e[1;31m\]"
 GREEN="\[\e[1;32m\]"
@@ -29,4 +26,4 @@ else
         PS1="$GREEN\h [$NORMAL\w$GREEN]\$ $NORMAL"
 fi
 export PS1
-</pre>
+```

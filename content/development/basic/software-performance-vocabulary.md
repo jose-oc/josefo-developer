@@ -1,9 +1,6 @@
 ---
 title: 'Vocabulario: Performance'
-author: Jose OC
-type: post
 date: 2015-05-07T05:46:38+00:00
-url: /blog/vocabulario-performance/
 categories:
   - Coding
 tags:
@@ -25,4 +22,3 @@ Es una tarea que también **recolecta información** para analizar el rendimient
 
 Esta tarea no consiste en hacer análisis como las anteriores sino modificaciones para mejorar el rendimiento. Se puede modificar bien el código fuente de la aplicación o bien la configuración.
 
-&nbsp;

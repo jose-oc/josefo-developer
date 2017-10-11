@@ -1,9 +1,6 @@
 ---
 title: Look for text in files in console
-author: Jose OC
-type: post
 date: 2014-10-01T14:47:09+00:00
-url: /en/blog/look-for-text-in-files-in-console/
 format: aside
 
 ---

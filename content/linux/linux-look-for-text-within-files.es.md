@@ -1,9 +1,6 @@
 ---
 title: Buscar texto en archivos desde la consola
-author: Jose OC
-type: post
 date: 2014-10-01T14:43:21+00:00
-url: /blog/buscar-texto-en-archivos-desde-la-consola/
 categories:
   - Linux
   - Terminal

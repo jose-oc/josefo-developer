@@ -1,9 +1,6 @@
 ---
 title: Mantener tomcat siempre activo
-author: Jose OC
-type: post
 date: 2014-09-28T21:22:45+00:00
-# url: /blog/mantener-tomcat-siempre-activo/
 categories:
   - Linux
   - Terminal
@@ -12,6 +9,7 @@ tags:
   - linux
   - terminal
   - tomcat
+  - alert
 
 ---
 Hace un tiempo un cliente me llamaba con cierta frecuencia porque su aplicación web J2EE dejaba de funcionar. Cuando me conectaba al servidor comprobaba que el servicio tomcat estaba parado.

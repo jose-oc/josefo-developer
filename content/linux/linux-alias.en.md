@@ -1,14 +1,12 @@
 ---
 title: My alias
-author: Jose OC
-type: post
 date: 2014-09-29T21:20:27+00:00
-url: /en/blog/my-alias/
 
 ---
 My favourite alias:
 
-<pre class="lang:sh decode:true">laptop:/ # cat /home/jose/.bash_alias
+```bash
+laptop:/ # cat /home/jose/.bash_alias
 # PROMPT
 #export PS1="\e[1;33m\u\e[m@\e[1;35m\h\e[m:\e[1;32m\w\e[m\$ \n "
 
@@ -24,5 +22,4 @@ alias md='mkdir -p'
 alias fuck='sudo $(history -p \!\!)'
 alias psc='ps xawf -eo pid,user,cgroup,args'
 alias grep_jose='grep --color -HinI'</pre>
-
-&nbsp;
+```

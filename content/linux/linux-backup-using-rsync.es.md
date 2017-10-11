@@ -1,9 +1,6 @@
 ---
 title: Backups con rsync
-author: Jose OC
-type: post
 date: 2014-10-04T21:03:15+00:00
-url: /blog/backups-con-rsync/
 categories:
   - Linux
   - Terminal
@@ -20,13 +17,8 @@ tags:
   Si además de hacer backups de los archivos que tienes pudieras además tener <strong>copias incrementales</strong>, mejor que mejor. De esta forma podrías, por ejemplo, recuperar un archivo que borraste hace varios días.
 </p>
 
-<div id="attachment_96" style="width: 310px" class="wp-caption aligncenter">
-  <a href="http://www.joseoc.es/wp-content/uploads/2014/10/13718407083_3b3c01ab7c_z.jpg"><img class="wp-image-96 size-medium" src="http://www.joseoc.es/wp-content/uploads/2014/10/13718407083_3b3c01ab7c_z-300x200.jpg" alt="Tomada de https://www.flickr.com/photos/foto_db/13718407083/in/photolist-mUfqu4-bWGgAk-89pH6q-6tgx7t-4yTsND-8YtnFS-5zKVPs-4A7WsA-aqYfK-23RUwa-8vEATQ-bJc39K-7BRek-bDtQ6e-4cyHom-i8ZrQj-d7maJd-8pd9Ec-6nexff-mTnD7-mUfk5t-naMTxi-5W67cY-5TYQGp-5pgPEV-amBVYp-amELm7-amELf1-amBVTg-62g2Hp-9cwGfb-fpptvD-fpDJpY-fpptv8-fpDJpL-fpDJoU-fpptti-fpDJm9-fpptu4-fpDJos-fppttP-fpptvg-CFP9u-7GFxYm-9qBBEa-4nw5rf-8DcMJU-p7GnJS-ena2yU-oRkaEn" width="300" height="200" srcset="https://www.joseoc.es/wp-content/uploads/2014/10/13718407083_3b3c01ab7c_z-300x200.jpg 300w, https://www.joseoc.es/wp-content/uploads/2014/10/13718407083_3b3c01ab7c_z.jpg 640w" sizes="(max-width: 300px) 100vw, 300px" /></a>
-  
-  <p class="wp-caption-text">
-    Backup (Tim Reckmann)
-  </p>
-</div>
+{{< figure src="/linux/13718407083_3b3c01ab7c_z.jpg" title="" >}}
+[Backup (Tim Reckmann)](https://www.flickr.com/photos/foto_db/13718407083/in/photolist-mUfqu4-bWGgAk-89pH6q-6tgx7t-4yTsND-8YtnFS-5zKVPs-4A7WsA-aqYfK-23RUwa-8vEATQ-bJc39K-7BRek-bDtQ6e-4cyHom-i8ZrQj-d7maJd-8pd9Ec-6nexff-mTnD7-mUfk5t-naMTxi-5W67cY-5TYQGp-5pgPEV-amBVYp-amELm7-amELf1-amBVTg-62g2Hp-9cwGfb-fpptvD-fpDJpY-fpptv8-fpDJpL-fpDJoU-fpptti-fpDJm9-fpptu4-fpDJos-fppttP-fpptvg-CFP9u-7GFxYm-9qBBEa-4nw5rf-8DcMJU-p7GnJS-ena2yU-oRkaEn)
 
 <p style="text-align: justify">
   Todo esto es posible usando <strong>rsync</strong>. Con este comando podemos tener esto con la ventaja de hacer los backups muy rápidamente y con un consumo de espacio de disco mínimo, sólo el justo y necesario.
@@ -36,7 +28,8 @@ tags:
   Este es un ejemplo de un script que hice para guardar los backups de un directorio de documentación:
 </p>
 
-<pre class="lang:sh decode:true" title="Backup con rsync">#!/bin/bash
+```bash
+#!/bin/bash
 
 ###################################
 ### Backup Archivos             ###
@@ -67,7 +60,7 @@ tail -1 $logfile
 echo
 echo "LIMPIEZA DE BACKUPS ANTIGUOS"
 find $BACKUP_PATH -type d -name "$FECHA_LIMPIEZA" -exec rm -rf {} \;
-</pre>
+```
 
 <p style="text-align: justify">
    Con este script se guardan los últimos 30 días del backup, realizando uno cada día (configurado en el cron).
@@ -77,7 +70,8 @@ find $BACKUP_PATH -type d -name "$FECHA_LIMPIEZA" -exec rm -rf {} \;
   Lo bueno es que cada directorio que se crea tiene todos los archivos del backup pero el espacio ocupado es sólo el de los archivos que se hayan modificado y los nuevos respecto al backup anterior. Esto es gracias al uso de los hard links del sistema operativo, linux por supuesto. Comprobémoslo. Vayamos al directorio donde se hacen estos backups, donde encontraremos un directorio por día, y midamos cuánto especio ocupa cada uno de ellos:
 </p>
 
-<pre class="lang:sh decode:true "># du -sch *
+```bash
+# du -sch *
 553M    2014-08-10
 13M 2014-08-11
 15M 2014-08-12
@@ -132,7 +126,8 @@ find $BACKUP_PATH -type d -name "$FECHA_LIMPIEZA" -exec rm -rf {} \;
 17M 2014-10-01
 16M 2014-10-02
 17M 2014-10-03
-1,9G    total</pre>
+1,9G    total
+```
 
 <p style="text-align: justify">
   En este caso hay más de 30 copias,  sí, tenía configuradas algunas más y el script comenzó a ejecutarse el 10 de agosto. Bueno, lo importante aquí es fijarnos que el primer directorio, el del 10/08, ocupa 553Mb mientras que los de los días posteriores ocupan mucho menos, alrededor de los 15Mb. Pero si entras en uno de estos directorios verás que no faltan archivos, que no es que estén los últimos, están <strong>todos</strong>. El comando rsync lo que hace es establecer un enlace duro a los archivos que no se hayan modificado, y esto produce el efecto de tener el archivo disponible en dicho directorio pero que no ocupe más espacio. Pero, ¿seguro que esto es así? Seguro, y sino hagamos lo siguiente, entraremos en el siguiente directorio y midamos cuánto espacio ocupan sus archivos:

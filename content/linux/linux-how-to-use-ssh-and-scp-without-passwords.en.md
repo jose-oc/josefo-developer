@@ -1,9 +1,6 @@
 ---
 title: How to use ssh and scp without passwords
-author: Jose OC
-type: post
 date: 2015-09-27T01:08:34+00:00
-url: /en/blog/how-to-use-ssh-and-scp-without-passwords/
 tags:
   - ssh
 

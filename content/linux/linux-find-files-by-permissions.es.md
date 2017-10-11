@@ -1,9 +1,6 @@
 ---
 title: Buscar archivos por permisos de usuario
-author: Jose OC
-type: post
 date: 2014-10-02T08:04:13+00:00
-url: /blog/buscar-archivos-por-permisos-de-usuario/
 categories:
   - Linux
   - Terminal

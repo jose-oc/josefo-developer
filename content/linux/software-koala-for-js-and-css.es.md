@@ -1,9 +1,6 @@
 ---
 title: Koala, la herramienta para desarrolladores js y css
-author: Jose OC
-type: post
 date: 2014-11-13T16:05:57+00:00
-url: /blog/koala-la-herramienta-para-desarrolladores-js-y-css/
 categories:
   - Linux
 

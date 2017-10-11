@@ -1,9 +1,6 @@
 ---
 title: Acceder a un servidor ssh sin necesidad de password
-author: Jose OC
-type: post
 date: 2014-12-10T11:41:24+00:00
-url: /blog/acceder-a-un-servidor-ssh-sin-necesidad-de-password/
 categories:
   - Linux
   - Terminal
@@ -53,15 +50,19 @@ The key fingerprint is:
 <p style="text-align: justify">
 </p>
 
-<li value="3">
-  Configure for easier connection. <span class="lang:sh decode:true crayon-inline ">vi ~/.ssh/config</span> <pre class="lang:sh decode:true">Host serverABC
+
+  Configure for easier connection. 
+
+```bash
+  vi ~/.ssh/config</span> <pre class="lang:sh decode:true">Host serverABC
   IdentityFile /home/jose/.ssh/id_rsa_serverABC
 Host piserver
   IdentityFile ~/.ssh/id_rsa_pi
   User pi
   HostName 1.2.3.4
-  Port 22</pre>  
-</li>
+  Port 22
+```
+
 
 Issues:
 
@@ -82,8 +83,6 @@ This is also useful to use the scp command.
 
 For more information about the config file: <http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/>
 
-<p style="text-align: justify">
-</p>
 
 <h1 style="text-align: justify">
   <strong><span style="text-decoration: underline">Problemas conocidos</span></strong>

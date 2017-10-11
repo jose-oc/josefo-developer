@@ -1,10 +1,7 @@
 ---
 title: The fundamental theorem of Agile Software Development
-author: Jose OC
-type: post
 date: 2016-01-01T00:00:00+00:00
 draft: true
-url: /?p=524
 categories:
   - Coding
 tags:

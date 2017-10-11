@@ -1,9 +1,6 @@
 ---
 title: Conectar un directorio remoto vía ssh
-author: Jose OC
-type: post
 date: 2014-10-01T15:03:15+00:00
-url: /blog/conectar-un-directorio-remoto-via-ssh/
 categories:
   - Linux
   - Terminal
@@ -12,7 +9,6 @@ tags:
   - linux
   - ssh
   - terminal
-format: aside
 
 ---
 Conectar un directorio remoto vía ssh.

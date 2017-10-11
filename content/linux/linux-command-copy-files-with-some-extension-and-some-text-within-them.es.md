@@ -1,9 +1,6 @@
 ---
 title: Copiar archivos que contengan cierto texto a otro directorio
-author: Jose OC
-type: post
 date: 2016-05-26T14:03:38+00:00
-url: /blog/copiar-archivos-que-contengan-cierto-texto-a-otro-directorio/
 categories:
   - Linux
   - Terminal
@@ -16,6 +13,5 @@ tags:
 ---
 Para poder copiar algunos archivos a un directorio con ciertas restricciones, como que tengan tal extensión y que contengan cierto texto podemos combinar los comandos **find** y **xargs**.
 
-<pre class="lang:sh decode:true ">xargs -r0 --arg-file &lt;(find . -type f -name "*.json" -exec grep -lZi some_text_within_files {} +) cp -i --target-directory /tmp/dest/dir/</pre>
-
-&nbsp;
+```bash
+xargs -r0 --arg-file &lt;(find . -type f -name "*.json" -exec grep -lZi some_text_within_files {} +) cp -i --target-directory /tmp/dest/dir/

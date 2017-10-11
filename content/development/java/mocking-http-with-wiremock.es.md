@@ -1,9 +1,6 @@
 ---
 title: Wiremock – haz mock los servicios http
-author: Jose OC
-type: post
 date: 2016-05-07T22:54:24+00:00
-url: /blog/wiremock-haz-mock-los-servicios-http/
 categories:
   - Coding
   - java
@@ -27,9 +24,6 @@ tags:
 
 <p style="text-align: justify;">
   [slideshare id=61833662&doc=wiremock-160509204651]
-</p>
-
-<p style="text-align: justify;">
 </p>
 
 <p style="text-align: justify;">

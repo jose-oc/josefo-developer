@@ -1,9 +1,6 @@
 ---
 title: Hacer capturas de pantalla facilmente en xfce
-author: Jose OC
-type: post
 date: 2015-04-29T12:54:08+00:00
-url: /blog/hacer-capturas-de-pantalla-facilmente-en-xfce/
 categories:
   - Linux
 tags:
@@ -24,17 +21,9 @@ tags:
   Tan fácil como esto:
 </p>
 
-<p style="text-align: justify">
-  <a href="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_01.png"><img class="aligncenter size-medium wp-image-235" src="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_01-300x234.png" alt="Adding_shortcut_screenshot_01" width="300" height="234" srcset="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_01-300x234.png 300w, https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_01.png 695w" sizes="(max-width: 300px) 100vw, 300px" /></a>
-</p>
+{{< figure src="/linux/Adding_shortcut_screenshot_01.png" title="" >}}
 
-<p style="text-align: justify">
-  <a href="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_02.png"><img class="aligncenter size-medium wp-image-236" src="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_02-300x227.png" alt="Adding_shortcut_screenshot_02" width="300" height="227" srcset="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_02-300x227.png 300w, https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_02.png 722w" sizes="(max-width: 300px) 100vw, 300px" /></a>
-</p>
+{{< figure src="/linux/Adding_shortcut_screenshot_02.png" title="" >}}
 
-<p style="text-align: justify">
-  <a href="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_03.png"><img class="aligncenter size-medium wp-image-237" src="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_03-300x235.png" alt="Adding_shortcut_screenshot_03" width="300" height="235" srcset="https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_03-300x235.png 300w, https://www.joseoc.es/wp-content/uploads/2015/04/Adding_shortcut_screenshot_03.png 695w" sizes="(max-width: 300px) 100vw, 300px" /></a>
-</p>
+{{< figure src="/linux/Adding_shortcut_screenshot_03.png" title="" >}}
 
-<p style="text-align: justify">
-</p>
