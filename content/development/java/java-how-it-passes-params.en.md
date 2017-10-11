@@ -1,9 +1,6 @@
 ---
 title: How does Java pass params
-author: Jose OC
-type: post
 date: 2015-05-02T17:39:32+00:00
-url: /en/blog/how-do-java-pass-params/
 
 ---
 <div>
@@ -26,7 +23,8 @@ url: /en/blog/how-do-java-pass-params/
   
   <strong>can not change its value</strong> within a method. I'll give you an example: 
   
-  <pre class="lang:java decode:true" title="primitive types"> class Car {
+  ```java
+  class Car {
         public void changeVariable(int a) {
             a = 321;
         }
@@ -37,7 +35,8 @@ url: /en/blog/how-do-java-pass-params/
         Car car = new Car();
         car.changeVariable(v);
         System.out.println(v); // 1
-    }</pre>
+    }
+```
   
   <h2>
     Objects
@@ -45,7 +44,8 @@ url: /en/blog/how-do-java-pass-params/
   
   <strong>copy of the pointer at the object</strong>, not the same pointer that we are using out of this method so it is passed by value. Being a pointer to the object we'll be able to modify the content of the object and we'll get the object modified after the execution of the method but we won't be able to create a new object and assign it from within the method because the pointer we have inside is not the same. I'll give you an example of this: 
   
-  <pre class="lang:java decode:true" title="Changing properties of an object param">  class Person {
+  ```java
+  class Person {
         String name;
     }
 
@@ -60,7 +60,10 @@ url: /en/blog/how-do-java-pass-params/
         person.name = "Mary";
         (new Writer()).changeName( person );
         System.out.println(person.name); //Lola
-    }</pre> Running this example you'll notice that the field has been changed, the name we can see in the console is &#8220;Lola&#8221;.
+    }
+```
+
+    Running this example you'll notice that the field has been changed, the name we can see in the console is &#8220;Lola&#8221;.
 </div>
 
 <div>
@@ -68,8 +71,11 @@ url: /en/blog/how-do-java-pass-params/
     Let's see another one:
   </div>
   
-  <div style="text-align: justify">
-    <pre class="lang:java decode:true " title="Changing the pointer to an object">  class Writer {      
+
+    Changing the pointer to an object
+
+```java
+    class Writer {      
         /**
          * Changing the pointer of the param
          * @param person
@@ -86,18 +92,15 @@ url: /en/blog/how-do-java-pass-params/
         person.name = "Mary";
         (new Writer()).changePerson( person );
         System.out.println(person.name); //Mary
-    }</pre>
-  </div>
+    }
+```
+
   
   <div style="text-align: justify">
     In this example we've created a new object Person called Mary and we give this object to the method changePerson where the argument (in this case the Person Mary) is replaced by a new Person called &#8220;Blas de Lezo&#8221; but we noticed that this replacement haven't been happen out of the method since the name printed is &#8220;Mary&#8221;. This is because the pointer passed was a copy.
   </div>
   
-  <div style="text-align: justify">
-  </div>
-  
-  <div style="text-align: justify">
-  </div>
+ 
   
   <h3 style="text-align: justify">
     Source
@@ -107,8 +110,6 @@ url: /en/blog/how-do-java-pass-params/
     You can download the source here: <a href="https://github.com/jose-oc/demo-java-params">https://github.com/jose-oc/demo-java-params</a>
   </div>
   
-  <div style="text-align: justify">
-  </div>
   
   <div style="text-align: justify">
     Information from: <a href="http://javadude.com/articles/passbyvalue.htm" target="_blank">http://javadude.com/articles/passbyvalue.htm</a>

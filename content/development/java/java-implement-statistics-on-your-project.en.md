@@ -1,9 +1,6 @@
 ---
 title: Implement statistics on your Java project
-author: Jose OC
-type: post
 date: 2014-10-12T22:32:07+00:00
-url: /en/blog/implement-statistics-on-your-java-project/
 
 ---
 <p style="text-align: justify">
@@ -85,27 +82,29 @@ url: /en/blog/implement-statistics-on-your-java-project/
   Write these lines in the web.xml file:
 </p>
 
-<pre class="lang:xhtml decode:true" title="web.xml">&lt;!--
+
+```xml
+  <!--
      Current project stage. When it is set to 'Development' Primefaces give a lot of debug information on the screen.
-   --&gt;
-   &lt;context-param&gt;
-       &lt;param-name&gt;javax.faces.PROJECT_STAGE&lt;/param-name&gt;
-       &lt;param-value&gt;Development&lt;/param-value&gt;
-   &lt;/context-param&gt;
+   -->
+   <context-param>
+       <param-name>javax.faces.PROJECT_STAGE</param-name>
+       <param-value>Development</param-value>
+   </context-param>
 
-   &lt;!-- Staring JSF --&gt;
-   &lt;servlet&gt;
-       &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
-       &lt;servlet-class&gt;javax.faces.webapp.FacesServlet&lt;/servlet-class&gt;
-       &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-   &lt;/servlet&gt;
+   <!-- Staring JSF -->
+   <servlet>
+       <servlet-name>Faces Servlet</servlet-name>
+       <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+       <load-on-startup>1</load-on-startup>
+   </servlet>
 
-   &lt;!-- JSF URL mapping --&gt;
-   &lt;servlet-mapping&gt;
-       &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
-       &lt;url-pattern&gt;*.xhtml&lt;/url-pattern&gt;
-   &lt;/servlet-mapping&gt;
-</pre>
+   <!-- JSF URL mapping -->
+   <servlet-mapping>
+       <servlet-name>Faces Servlet</servlet-name>
+       <url-pattern>*.xhtml</url-pattern>
+   </servlet-mapping>
+```
 
 <p style="text-align: justify">
   This way when the URL finishes in .xhtml the JSF servlet will work.
@@ -119,14 +118,16 @@ url: /en/blog/implement-statistics-on-your-java-project/
   Let's test if JSF works on the project. We will create a file with xhtml extension like this:
 </p>
 
-<pre class="lang:xhtml decode:true ">&lt;!DOCTYPE html&gt;
-&lt;html xmlns="http://www.w3c.org/1999/xhtml"
-       xmlns:h="http://xmlns.jcp.org/jsf/html"&gt;
- &lt;h:head&gt;&lt;/h:head&gt;
- &lt;h:body&gt;
+```html
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+ <h:head></h:head>
+ <h:body>
     Hello world!
- &lt;/h:body&gt;
-&lt;/html&gt;</pre>
+ </h:body>
+</html>
+```
 
 <p style="text-align: justify">
   This file will write the html tag <head> using the JSF tag <span class="lang:default highlight:0 decode:true  crayon-inline ">h:head</span>.
@@ -136,15 +137,17 @@ url: /en/blog/implement-statistics-on-your-java-project/
   Until now we haven't use PrimeFaces, let's see an example to test if PrimeFaces works in the project. This file should draw a rich editor in your browser.
 </p>
 
-<pre class="lang:xhtml mark:4,7 decode:true ">&lt;!DOCTYPE html&gt;
-&lt;html xmlns="http://www.w3c.org/1999/xhtml"
+```html
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
        xmlns:h="http://xmlns.jcp.org/jsf/html"
-       xmlns:p="http://primefaces.org/ui"&gt;
- &lt;h:head&gt;&lt;/h:head&gt;
- &lt;h:body&gt;
-       &lt;p:editor /&gt;
- &lt;/h:body&gt;
-&lt;/html&gt;</pre>
+       xmlns:p="http://primefaces.org/ui">
+ <h:head></h:head>
+ <h:body>
+       <p:editor />
+ </h:body>
+</html>
+```
 
 <h2 style="text-align: justify">
   Working on the statistics
@@ -162,21 +165,22 @@ url: /en/blog/implement-statistics-on-your-java-project/
   I'll start creating the view. It's surprising that writing just one line we will have a chart.
 </p>
 
-<pre class="lang:xhtml mark:11 decode:true" title="stat_bar_ranking_clients.xhtml">&lt;html xmlns="http://www.w3.org/1999/xhtml" 
+```html
+<html xmlns="http://www.w3.org/1999/xhtml" 
     xmlns:h="http://java.sun.com/jsf/html" 
     xmlns:f="http://java.sun.com/jsf/core" 
-    xmlns:p="http://primefaces.org/ui"&gt; 
+    xmlns:p="http://primefaces.org/ui"> 
 
-    &lt;h:head&gt; 
-    &lt;/h:head&gt; 
+    <h:head> 
+    </h:head> 
 
-    &lt;h:body&gt;      
+    <h:body>      
 
-    &lt;p:chart type="bar" model="#{rankingProduct.rankingClientesModel}" style="height:300px"/&gt;
+    <p:chart type="bar" model="#{rankingProduct.rankingClientesModel}" style="height:300px"/>
 
-    &lt;/h:body&gt; 
-&lt;/html&gt;
-</pre>
+    </h:body> 
+</html>
+```
 
 <p style="text-align: justify">
   The tag <span class="lang:default highlight:0 decode:true  crayon-inline "><p:chart /></span>  makes PrimeFaces to draw a chart and with <span class="lang:default highlight:0 decode:true  crayon-inline ">type=&#8221;bar&#8221;</span> we are saying the type of chart. Giving the data of the chart is very simple: <span class="lang:xhtml highlight:0 decode:true crayon-inline">model=&#8221;#{rankingProduct.rankingClientesModel}&#8221;</span>
@@ -190,7 +194,10 @@ url: /en/blog/implement-statistics-on-your-java-project/
   We will create a Java class called RankingProduct. This class will have a private attribute rankingClientesModel with its getter method.
 </p>
 
-<pre class="lang:java decode:true " title="RankingProduct.java">package joc.jsf.statistic.beans;
+RankingProduct.java:
+
+```java
+package joc.jsf.statistic.beans;
 
 import java.io.Serializable;
 
@@ -244,7 +251,7 @@ public class RankigProduct implements Serializable {
     }
 
 }
-</pre>
+```
 
 <p style="text-align: justify">
   For simplicity I just wrote three data where you will fill this bean with data from the SQL query that other class will obtain.

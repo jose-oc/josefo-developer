@@ -1,9 +1,6 @@
 ---
 title: Añadir estadísticas a tu aplicación web Java
-author: Jose OC
-type: post
 date: 2014-10-12T21:37:10+00:00
-url: /blog/anadir-estadisticas-a-tu-aplicacion-web-java/
 categories:
   - Coding
   - java
@@ -73,27 +70,30 @@ Y para poder usar **PrimeFaces** sólo tuve que añadir este jar:
 
 Para hacer uso de JSF tan sólo hay que indicar qué tipo de URLs deben hacer uso del servlet de JSF, así de sencillo. En el archivo web.xml añadir lo siguiente:
 
-<pre class="lang:xhtml decode:true" title="web.xml">&lt;!--
+web.xml:
+
+```xml
+  <!--
      Current project stage. When it is set to 'Development' Primefaces give a lot of debug information on the screen.
-   --&gt;
-   &lt;context-param&gt;
-       &lt;param-name&gt;javax.faces.PROJECT_STAGE&lt;/param-name&gt;
-       &lt;param-value&gt;Development&lt;/param-value&gt;
-   &lt;/context-param&gt;
+   -->
+   <context-param>
+       <param-name>javax.faces.PROJECT_STAGE</param-name>
+       <param-value>Development</param-value>
+   </context-param>
 
-   &lt;!-- Staring JSF --&gt;
-   &lt;servlet&gt;
-       &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
-       &lt;servlet-class&gt;javax.faces.webapp.FacesServlet&lt;/servlet-class&gt;
-       &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-   &lt;/servlet&gt;
+   <!-- Staring JSF -->
+   <servlet>
+       <servlet-name>Faces Servlet</servlet-name>
+       <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+       <load-on-startup>1</load-on-startup>
+   </servlet>
 
-   &lt;!-- JSF URL mapping --&gt;
-   &lt;servlet-mapping&gt;
-       &lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
-       &lt;url-pattern&gt;*.xhtml&lt;/url-pattern&gt;
-   &lt;/servlet-mapping&gt;
-</pre>
+   <!-- JSF URL mapping -->
+   <servlet-mapping>
+       <servlet-name>Faces Servlet</servlet-name>
+       <url-pattern>*.xhtml</url-pattern>
+   </servlet-mapping>
+```
 
 De esta forma cuando se invoque una URL terminada en .xhtml se invocará al servlet de JSF y podremos hacer uso de esta tecnología.
 
@@ -101,28 +101,32 @@ De esta forma cuando se invoque una URL terminada en .xhtml se invocará al serv
 
 Para hacer uso de componentes JSF tan sólo tendremos tendremos que crear un archivo con extensión xhtml (si el web.xml lo definimos como se indicó anteriormente). En este archivo se debe indicar que se van a usar tags de JSF indicando la URL. El ejemplo más básico puede ser éste:
 
-<pre class="lang:xhtml decode:true ">&lt;!DOCTYPE html&gt;
-&lt;html xmlns="http://www.w3c.org/1999/xhtml"
-       xmlns:h="http://xmlns.jcp.org/jsf/html"&gt;
- &lt;h:head&gt;&lt;/h:head&gt;
- &lt;h:body&gt;
+```html
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+ <h:head></h:head>
+ <h:body>
     Hello world!
- &lt;/h:body&gt;
-&lt;/html&gt;</pre>
+ </h:body>
+</html>
+```
 
 Aquí vemos que para escribir la etiqueta de html <head> se usa <span class="lang:default highlight:0 decode:true  crayon-inline ">h:head</span>.
 
 Hasta ahora no hemos usando nada de PrimeFaces. Veamos el ejemplo que ellos mismos nos dan en su documentación, añadamos el componente editor que pinta en pantalla un editor enriquecido, ya sabes, para poder escribir con formato: negritas, cursivas, etc.
 
-<pre class="lang:xhtml mark:4,7 decode:true ">&lt;!DOCTYPE html&gt;
-&lt;html xmlns="http://www.w3c.org/1999/xhtml"
+```html
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
        xmlns:h="http://xmlns.jcp.org/jsf/html"
-       xmlns:p="http://primefaces.org/ui"&gt;
- &lt;h:head&gt;&lt;/h:head&gt;
- &lt;h:body&gt;
-       &lt;p:editor /&gt;
- &lt;/h:body&gt;
-&lt;/html&gt;</pre>
+       xmlns:p="http://primefaces.org/ui">
+ <h:head></h:head>
+ <h:body>
+       <p:editor />
+ </h:body>
+</html>
+```
 
 ##  Generando estadísticas
 
@@ -132,21 +136,24 @@ Hasta ahora todo lo que hemos hecho ha sido añadir la tecnología JSF y PrimeFa
 
 Empezaré por la vista. Es sorprende lo poco que hay que escribir para generar una gráfica de barras, vean, vean:
 
-<pre class="lang:xhtml mark:11 decode:true" title="stat_bar_ranking_clients.xhtml">&lt;html xmlns="http://www.w3.org/1999/xhtml" 
+stat_bar_ranking_clients.xhtml:
+
+```html
+<html xmlns="http://www.w3.org/1999/xhtml" 
     xmlns:h="http://java.sun.com/jsf/html" 
     xmlns:f="http://java.sun.com/jsf/core" 
-    xmlns:p="http://primefaces.org/ui"&gt; 
+    xmlns:p="http://primefaces.org/ui"> 
 
-    &lt;h:head&gt; 
-    &lt;/h:head&gt; 
+    <h:head> 
+    </h:head> 
 
-    &lt;h:body&gt;      
+    <h:body>      
 
-    &lt;p:chart type="bar" model="#{rankingProduct.rankingClientesModel}" style="height:300px"/&gt;
+    <p:chart type="bar" model="#{rankingProduct.rankingClientesModel}" style="height:300px"/>
 
-    &lt;/h:body&gt; 
-&lt;/html&gt;
-</pre>
+    </h:body> 
+</html>
+```
 
 Fíjate que simplemente con <span class="lang:default highlight:0 decode:true  crayon-inline "><p:chart /></span>  indicamos a PrimeFaces que pinte una gráfica, le indicamos el tipo: <span class="lang:default highlight:0 decode:true  crayon-inline ">type=&#8221;bar&#8221;</span>  y le damos el objeto que tiene los datos a pintar: <span class="lang:xhtml highlight:0 decode:true crayon-inline">model=&#8221;#{rankingProduct.rankingClientesModel}&#8221;</span>
 
@@ -156,7 +163,10 @@ En la vista anterior se indicaba el modelo a pintar. Definámoslo.
 
 Creamos una clase que se llame RankingProduct (podría llamarse de otra forma, pero para qué) en el paquete que nos convenga. Esta clase tendrá un atributo privado que se llame rankingClientesModel con su método get para leerlo (muy importante esto, que no se te olvide el método get).
 
-<pre class="lang:java decode:true " title="RankingProduct.java">package joc.jsf.statistic.beans;
+RankingProduct.java
+
+```java
+package joc.jsf.statistic.beans;
 
 import java.io.Serializable;
 
@@ -210,7 +220,7 @@ public class RankigProduct implements Serializable {
     }
 
 }
-</pre>
+```
 
 En este caso se han añadido datos simplemente para pintar algo en la gráfica, en realidad se carga este bean con los datos resultados de la consulta a base de datos que lleva a cabo otra clase.
 
