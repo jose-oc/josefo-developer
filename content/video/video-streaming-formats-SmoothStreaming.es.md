@@ -1,9 +1,6 @@
 ---
 title: Microsoft Smooth Streaming
-author: Jose OC
-type: post
 date: 2016-06-10T10:17:19+00:00
-url: /blog/microsoft-smooth-streaming/
 tags:
   - adaptative video streaming
   - Microsoft

@@ -1,13 +1,11 @@
 ---
 title: Obtener información de un archivo de vídeo
-author: Jose OC
-type: post
 date: 2015-12-10T10:48:02+00:00
-url: /blog/obtener-informacion-de-un-archivo-de-video/
 tags:
   - linux
   - terminal
   - video
+  - how to
 
 ---
 Existen comandos para la consola (terminal) de linux para obtener meta-información de un archivo de vídeo:
@@ -111,7 +109,7 @@ ID_EXIT=EOF
 
 &nbsp;
 
-Otra forma es con ffmpeg -i <filename> o lo que es lo mismo:
+Otra forma es con `ffmpeg -i <filename>` o lo que es lo mismo:
 
 <pre class="lang:sh decode:true " title="ffprobe or ffmpeg -i command">$ ffprobe sintel-1024-surround.mp4 
 ffprobe version 2.8.4 Copyright (c) 2007-2015 the FFmpeg developers
@@ -150,5 +148,3 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'sintel-1024-surround.mp4':
 Y si lo ves más claro en formato json:
 
 <pre class="lang:sh decode:true ">ffprobe -v quiet -print_format json -show_format -show_streams video-file.mp4</pre>
-
-&nbsp;

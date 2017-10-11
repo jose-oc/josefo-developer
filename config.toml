@@ -51,6 +51,12 @@ url = "cv"
 weight = 20
 
 [[Languages.en.menu.shortcuts]]
+name = "<i class='fa fa-bookmark'></i> Hugo Documentation"
+identifier = "hugodoc"
+url = "https://gohugo.io/"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
 name = "<i class='fa fa-bullhorn'></i> Credits"
 url = "/credits"
 weight = 30

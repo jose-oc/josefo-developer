@@ -2,6 +2,10 @@
 title: HLS (Http Live Streaming)
 date: 2016-01-01T00:00:00+00:00
 draft: true
+tags:
+  - adaptative video streaming
+  - streaming
+  - video
 
 ---
 **HLS** es la implementación de _Apple_ para el adaptative streaming basado en HTTP.

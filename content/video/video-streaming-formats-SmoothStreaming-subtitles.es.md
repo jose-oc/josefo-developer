@@ -4,6 +4,10 @@ date: 2016-01-01T00:00:00+00:00
 draft: true
 categories:
   - Coding
+tags:
+  - adaptative video streaming
+  - streaming
+  - video
 
 ---
 <p style="text-align: justify">

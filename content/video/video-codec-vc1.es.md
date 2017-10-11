@@ -1,10 +1,7 @@
 ---
 title: VC-1 is a codec specification
-author: Jose OC
-type: post
 date: 2016-01-01T00:00:00+00:00
 draft: true
-url: /?p=404
 categories:
   - Coding
 tags:
