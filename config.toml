@@ -17,6 +17,16 @@ publishDir = "docs"
   description = "Josefo developer. IT notes"
   author = "Jose OC"
   showVisitedLinks = true
+  # Set this to true to disable copy-to-clipboard button for inline code.
+  disableInlineCopyToClipBoard = false
+  # A title for shortcuts in menu is set by default. Set this to true to disable it. 
+  disableShortcutsTitle = false
+  # When using mulitlingual website, disable the switch language button.
+  disableLanguageSwitchingButton = false
+  # Order sections in menu by "weight" or "title". Default to "weight"
+  ordersectionsby = "weight"
+  # Change default color scheme with a variant one. Can be "red", "blue", "green".
+  themeVariant = ""
 
 # For search functionnality
 [outputs]
