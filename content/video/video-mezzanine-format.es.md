@@ -3,9 +3,8 @@ title: Mezzanine
 author: Jose OC
 type: post
 date: 2017-01-09T16:45:26+00:00
-url: /blog/mezzanine-2/
 categories:
-  - Coding
+  - Video
 tags:
   - adaptative video streaming
   - video

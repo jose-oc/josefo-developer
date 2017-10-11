@@ -1,15 +1,20 @@
 ---
 title: Agrupar commits en Git
-author: Jose OC
-type: post
 date: 2015-10-13T10:15:28+00:00
-url: /blog/agrupar-commits-en-git/
 categories:
   - Terminal
 tags:
   - git
+  - linux terminal
 
 ---
+
+```
+git rebase --interactive
+```
+
+<!-- more -->
+
 Muchas veces tenemos un número de commits en git que no llegan a tener especial sentido o tenemos que hacer un rebase con otra rama; si éste es el caso y hay conflictos de forma que git automáticamente no es capaz de hacer el rebase, será una pesadilla trabajar los commits uno a uno.
 
 En estos casos puede ser conveniente agruparlos en uno solo. Podemos hacerlo con un rebase interactivo: `git rebase --interactive` o `git rebase -i`.

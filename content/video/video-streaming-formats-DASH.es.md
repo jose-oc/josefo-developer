@@ -1,10 +1,7 @@
 ---
 title: DASH (Dynamic Adaptive Streaming over HTTP)
-author: Jose OC
-type: post
-date: -001-11-30T00:00:00+00:00
+date: 2016-01-01T00:00:00+00:00
 draft: true
-url: /?p=413
 tags:
   - adaptative video streaming
   - streaming

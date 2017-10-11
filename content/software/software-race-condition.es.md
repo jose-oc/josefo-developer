@@ -1,9 +1,6 @@
 ---
 title: Race condition
-author: Jose OC
-type: post
 date: 2017-01-05T16:08:34+00:00
-url: /blog/race-condition/
 categories:
   - Coding
   - java
