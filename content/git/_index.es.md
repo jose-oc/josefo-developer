@@ -1,7 +1,7 @@
 +++
 title = "git"
 description = ""
-weight = 1
+weight = 50
 alwaysopen = false
 +++
 
