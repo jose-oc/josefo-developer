@@ -8,21 +8,15 @@ tags:
   - docker
 
 ---
-<p style="text-align: justify">
-  Voy a explicar cómo dockerizar una aplicación Java, esto es generar una imagen docker que contenga y ejecute una aplicación Java.
-</p>
+Voy a explicar cómo dockerizar una aplicación Java, esto es generar una imagen docker que contenga y ejecute una aplicación Java.
 
-<h1 style="text-align: justify">
-  Introducción
-</h1>
+<!-- more -->
 
-<p style="text-align: justify">
-  Para ello he desarrollado una pequeña aplicación Java que recoge un input, un archivo de texto, le aplica algunas modificaciones y guarda la salida generada, otro archivo de texto. También generará un archivo de logs.
-</p>
+## Introducción.
 
-<p style="text-align: justify">
-  La idea es tener una imagen docker con dicha aplicación en su interior y que cuando se ejecute el contenedor docker se ejecute la aplicación y genere tanto el resultado como el log pero que dichos archivos sean accesibles desde fuera del contenedor docker.
-</p>
+Para ello he desarrollado una pequeña aplicación Java que recoge un input, un archivo de texto, le aplica algunas modificaciones y guarda la salida generada, otro archivo de texto. También generará un archivo de logs.
+
+La idea es tener una imagen docker con dicha aplicación en su interior y que cuando se ejecute el contenedor docker se ejecute la aplicación y genere tanto el resultado como el log pero que dichos archivos sean accesibles desde fuera del contenedor docker.
 
 <h1 style="text-align: justify">
   Empaquetar la aplicación Java

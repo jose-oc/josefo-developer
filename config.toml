@@ -4,8 +4,8 @@ languageCode = "en-US"
 defaultContentLanguage = "en"
 
 title = "Josefo developer"
-#theme = "docdock"
-theme = "hugo-theme-learn"
+theme = "docdock"
+#theme = "hugo-theme-learn"
 #themesdir = "../.."
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true

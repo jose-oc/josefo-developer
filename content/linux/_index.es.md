@@ -7,4 +7,4 @@ alwaysopen = false
 
 En esta categoría encontrarás mis notas sobre temas relacionados con Linux, comandos, scripts, etc.
 
-{{%children style="h2" description="true"%}}
+{{%children style="h3" description="true"%}}

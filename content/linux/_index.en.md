@@ -9,4 +9,4 @@ alwaysopen = false
 
 This category has posts related to Linux
 
-{{%children style="h2" description="true"%}}
+{{%children style="h3" description="true"%}}

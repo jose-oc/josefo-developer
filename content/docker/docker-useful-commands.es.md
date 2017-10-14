@@ -10,7 +10,7 @@ tags:
   - docker
 
 ---
-Borrar **imáges** <none>:<none>
+Borrar **imáges** `<none>:<none>``
 
 ```
 docker rmi $(docker images -f "dangling=true" -q)

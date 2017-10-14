@@ -5,5 +5,4 @@ weight = 80
 alwaysopen = false
 +++
 
-
-{{%children style="h2" description="true"%}}
+{{%children style="h3" description="true"%}}
