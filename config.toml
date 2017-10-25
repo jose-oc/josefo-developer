@@ -50,6 +50,7 @@ url = "https://github.com/jose-oc/josefo-developer"
 weight = 10
 
 [[Languages.en.menu.shortcuts]]
+pre = "<h3>More</h3>"
 name = "<i class='fa fa-camera'></i> CV"
 url = "cv"
 weight = 20
@@ -71,6 +72,7 @@ weight = 2
 languageName = "Español"
 
 [[Languages.es.menu.shortcuts]]
+pre = "<h3>Más</h3>"
 name = "<i class='fa fa-github'></i> Repo Github"
 identifier = "ds"
 url = "https://github.com/jose-oc/josefo-developer"
