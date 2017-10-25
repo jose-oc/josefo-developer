@@ -1,5 +1,5 @@
-baseURL = "/"
-#baseURL = "https://jose-oc.github.io/josefo-developer/"
+#baseURL = "/"
+baseURL = "https://joseoc.netlify.com/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
 
