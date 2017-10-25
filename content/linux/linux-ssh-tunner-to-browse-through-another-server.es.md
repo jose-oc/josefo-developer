@@ -3,7 +3,6 @@ title: Tunel SSH para navegar a través de otro servidor
 author: Jose OC
 type: post
 date: 2016-02-25T20:08:30+00:00
-url: /blog/tunel-ssh-para-navegar-a-traves-de-otro-servidor/
 categories:
   - Coding
 tags:
