@@ -18,7 +18,7 @@ publishDir = "docs"
   hrefTargetBlank = true
 
 [params]
-  editURL = "https://jose-oc.github.io/josefo-developer/content/"
+  editURL = "https://github.com/jose-oc/josefo-developer/blob/master/content/"
   description = "Josefo developer. IT notes"
   author = "Jose OC"
   showVisitedLinks = true
