@@ -11,7 +11,7 @@ metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
 
 # To build the project into this folder (docs is the one used by github to create the static website)
-publishDir = "docs"
+# publishDir = "docs"
 
 [blackfriday]
   angledQuotes = true
