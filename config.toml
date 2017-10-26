@@ -10,6 +10,8 @@ theme = "docdock-joseoc"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
 
+#googleAnalytics = "UA-123-45"
+
 # To build the project into this folder (docs is the one used by github to create the static website)
 # publishDir = "docs"
 
@@ -29,9 +31,12 @@ defaultContentLanguageInSubdir= true
   # When using mulitlingual website, disable the switch language button.
   disableLanguageSwitchingButton = false
   # Order sections in menu by "weight" or "title". Default to "weight"
-  ordersectionsby = "weight"
+  ordersectionsby = "weight" # ordersectionsby = "title"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = ""
+  themeStyle = "original" # "original" or "flex" # default "original"
+  [params.ga]
+    async = true
 
 # For search functionnality
 [outputs]
@@ -43,7 +48,7 @@ title = "Josefo dev"
 weight = 1
 languageName = "English"
 
-[[Languages.en.menu.shortcuts]] 
+[[Languages.en.menu.shortcuts]]
 name = "<i class='fa fa-github'></i> Github repo"
 identifier = "ds"
 url = "https://github.com/jose-oc/josefo-developer"
