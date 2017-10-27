@@ -10,7 +10,7 @@ theme = "docdock"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
 
-#googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-108826494-1"
 
 # To build the project into this folder (docs is the one used by github to create the static website)
 # publishDir = "docs"
