@@ -4,11 +4,13 @@ languageCode = "en-US"
 defaultContentLanguage = "en"
 
 title = "Josefo developer"
-theme = "docdock-joseoc"
+theme = "docdock"
 #theme = "hugo-theme-learn"
 #themesdir = "../.."
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= true
+
+googleAnalytics = "UA-108826494-1"
 
 # To build the project into this folder (docs is the one used by github to create the static website)
 # publishDir = "docs"
@@ -29,42 +31,45 @@ defaultContentLanguageInSubdir= true
   # When using mulitlingual website, disable the switch language button.
   disableLanguageSwitchingButton = false
   # Order sections in menu by "weight" or "title". Default to "weight"
-  ordersectionsby = "weight"
+  ordersectionsby = "weight" # ordersectionsby = "title"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = ""
+  themeStyle = "original" # "original" or "flex" # default "original"
+  [params.ga]
+    async = true
 
 # For search functionnality
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
+
+[[menu.shortcuts]]
+pre = "<h3>More</h3>"
+name = "<i class='fa fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://github.com/jose-oc/josefo-developer"
+weight = 10
+
+# [[menu.shortcuts]]
+# name = "<i class='fa fa-camera'></i> CV"
+# url = "cv"
+# weight = 15
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-bookmark'></i> Hugo Documentation"
+identifier = "hugodoc"
+url = "https://gohugo.io/"
+weight = 20
+
+# [[menu.shortcuts]]
+# name = "<i class='fa fa-bullhorn'></i> Credits"
+# url = "/credits"
+# weight = 30
 
 [Languages]
 [Languages.en]
 title = "Josefo dev"
 weight = 1
 languageName = "English"
-
-[[Languages.en.menu.shortcuts]] 
-name = "<i class='fa fa-github'></i> Github repo"
-identifier = "ds"
-url = "https://github.com/jose-oc/josefo-developer"
-weight = 10
-
-[[Languages.en.menu.shortcuts]]
-pre = "<h3>More</h3>"
-name = "<i class='fa fa-camera'></i> CV"
-url = "cv"
-weight = 20
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fa fa-bookmark'></i> Hugo Documentation"
-identifier = "hugodoc"
-url = "https://gohugo.io/"
-weight = 20
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fa fa-bullhorn'></i> Credits"
-url = "/credits"
-weight = 30
 
 [Languages.es]
 title = "Programador Josefo"
@@ -78,18 +83,18 @@ identifier = "ds"
 url = "https://github.com/jose-oc/josefo-developer"
 weight = 10
 
-[[Languages.es.menu.shortcuts]]
-name = "<i class='fa fa-camera'></i> CV"
-url = "/cv"
-weight = 20
+# [[Languages.es.menu.shortcuts]]
+# name = "<i class='fa fa-camera'></i> CV"
+# url = "/cv"
+# weight = 15
 
 [[Languages.es.menu.shortcuts]]
 name = "<i class='fa fa-bookmark'></i> Documentation Hugo"
 identifier = "hugodoc"
 url = "https://gohugo.io/"
-weight = 22
+weight = 20
 
-[[Languages.es.menu.shortcuts]]
-name = "<i class='fa fa-bullhorn'></i> Créditos"
-url = "/credits"
-weight = 30
+# [[Languages.es.menu.shortcuts]]
+# name = "<i class='fa fa-bullhorn'></i> Créditos"
+# url = "/credits"
+# weight = 30
