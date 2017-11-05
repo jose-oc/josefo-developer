@@ -4,19 +4,19 @@ date: 2017-11-03T23:46:43+01:00
 draft: true
 categories:
   - Unit tests
-tags:
   - Code coverage
+tags:
+
 ---
 
-OJO: TRADUCE ESTO
+I assume you write unit tests, of course! and... do you review the code coverage? I mean, the amount of code coveraged by those tests.
 
-¡Por supuesto que haces unit tests a tu código! Esto es básico, pero... ¿revisas el code coverage? es decir, la cantidad de código que está cubierto por los tests. 
-
-Personalmente no soy extremadamente riguroso con el porcentaje de código que debe estar testeado porque hay situaciones en que no tiene sentido llegar hasta cierto porcentaje en concreto o testear un código que puede ser un simple POJO, pero sí que considero importante tener alguna herramienta que nos compruebe esto de forma que podamos ver si nos estamos dejando código importante sin probar o bien si tenemos alguna rama o cierta complejidad sin cubrir.
+Personally I'm not extremely strict with the percentage of code tested because a simple number isn't sensible, there are some cases where reaching a specific number doesn't make sense. Think in testing a simple POJO. 
+Nevertheless, I believe it is important to have an automatic tool checking this value for you because that way you'll be forced to review your tests and you might realised there are some cases in your code which haven't been covered by your tests such as a branch or some complex code.
 
 <!-- more -->
 
-Cuando hablo de rama o complejidad me refiero a que tengamos algún if donde probemos ciertas condiciones pero no otras. Imagínate que tienes algo como: 
+When I say branch or complexity I mean the code might have an _if_ with some conditions covered by tests but some others don't. Imagine you have an if like the following one, you'd have to cover all the different conditions that could make this to be true:
 
 ```java
 if (amount > 499 && !offer && isAvailable) {
@@ -26,11 +26,14 @@ if (amount > 499 && !offer && isAvailable) {
 }
 ```
 
-En ese código tenemos distintas posibilidades que debemos probar. Para esto, por ejemplo, es útil tener una herramienta que te diga si estás cubriendo todas las posibilidades o ramas por las que entrar.
+In that case it's useful to have a tool that assure you're covering all the possible cases.
+
 
 ## Jacoco
 
-### Configuración básica
+### Basic configuration
+
+OJO: TRADUCE ESTO
 
 Podemos usar la herramienta jacoco en nuestro proyecto maven tan sólo añadiendo el plugin al _pom.xml_
 
