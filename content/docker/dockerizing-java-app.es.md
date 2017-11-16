@@ -12,6 +12,8 @@ Voy a explicar cómo dockerizar una aplicación Java, esto es generar una imagen
 
 <!-- more -->
 
+{{< figure src="/docker/docker_java.png"  >}}
+
 ## Introducción.
 
 Para ello he desarrollado una pequeña aplicación Java que recoge un input, un archivo de texto, le aplica algunas modificaciones y guarda la salida generada, otro archivo de texto. También generará un archivo de logs.

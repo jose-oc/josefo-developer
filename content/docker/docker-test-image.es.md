@@ -7,13 +7,16 @@ tags:
   - docker
 
 ---
+
+{{< figure src="/docker/docker_rspec.png"  >}}
+
 Los tests nos aseguran que el trabajo hecho es el esperado y también nos aseguran que en modificaciones futuras seguimos teniendo el trabajo que necesitamos.
 
 Las imágenes docker también pueden ser probadas para asegurar que cumplan con nuestros requisitos. Para probarlas podemos usar ruby.
 
 Además de tener ruby instalado necesitamos tener instalado su bundle. En openSUSE lo podemos instalar así:
 
-```bash
+```
   sudo zypper install ruby-devel ruby2.1-rubygem-bundler
 ```
 
