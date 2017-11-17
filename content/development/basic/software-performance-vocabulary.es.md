@@ -22,3 +22,8 @@ Es una tarea que también **recolecta información** para analizar el rendimient
 
 Esta tarea no consiste en hacer análisis como las anteriores sino modificaciones para mejorar el rendimiento. Se puede modificar bien el código fuente de la aplicación o bien la configuración.
 
+## Throughput
+
+Measures the number of operations per second.
+
+##

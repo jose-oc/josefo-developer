@@ -2,6 +2,8 @@
 title: "Java Performance"
 date: 2017-11-15T17:27:42+01:00
 draft: true
+tags:
+  - performance
 ---
 
 <strong>Sobre String, cómo ha cambiado a lo largo de las versiones:</strong>
@@ -45,3 +47,14 @@ https://visualvm.java.net/gettingstarted.html?Java_VisualVM
 
 <strong>Aquí explican éstos y más:</strong>
 http://www.cubrid.org/blog/dev-platform/how-to-monitor-java-garbage-collection/
+
+
+
+---------
+
+gc log
+thread dump
+heap dump
+
+http://fastthread.io/
+http://gceasy.io/
