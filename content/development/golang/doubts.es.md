@@ -5,7 +5,9 @@ draft: true
 ---
 
 - ¿Cómo es el manejo de errores?
-- hay que compilar el código, ¿se ejecuta en cualquier sistema operativo?
+- herencia?
+- sobrecarga de métodos?
+- hay que compilar el código, si hago un programa y lo quiero para win, mac y linux, ¿cómo lo compilo?
 - ¿tests?
 - code coverage?
 
