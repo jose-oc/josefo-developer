@@ -568,3 +568,13 @@ Cuando tienes código en otro archivo distinto a main.go tienes que poner en may
 
 Puedes indicarle a GoLang que ejecute en paralelo alguna rutina con unas palabras reservadas.
 
+TODO
+
+## Channels
+
+
+
+TODO
+
+
+

@@ -9,6 +9,7 @@ draft: true
 - sobrecarga de métodos? - No se puede
 - hay que compilar el código, si hago un programa y lo quiero para win, mac y linux, ¿cómo lo compilo?
 - ¿tests?
+- lint?
 - code coverage?
 - debug?
 - best practices?
@@ -36,3 +37,20 @@ From the [survey2016](https://blog.golang.org/survey2016-results)
 - Go is easier to debug than C (even absent a debugger). (same as above)
 - Go has better modularity, tooling, testing, profiling, etc (show me)
 - Go makes parallel execution trivial.
+
+
+------
+
+Kotlin
+
+- How to debug?
+
+
+
+----------------
+
+SSID: Congresos
+Usuario: devfest
+Clave: MalagaGDG
+
+

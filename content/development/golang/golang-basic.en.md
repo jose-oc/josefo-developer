@@ -548,5 +548,124 @@ When you have code in another files different than main.go you have to capitaliz
 
 ## GoRoutines
 
-You can tell _Go_ to run a routine in **parallel** by using some special keywords:
+You can tell _Go_ to run a routine in **parallel** by using some special keywords (`go`, `` and ``)
 
+Run a few examples [here](https://tour.golang.org/concurrency/1): 
+> A goroutine is a lightweight thread managed by the Go runtime.
+> Goroutines run in the same address space, so access to shared memory must be synchronized. The sync package provides useful primitives, although you won't need them much in Go as there are other primitives.
+
+From https://tour.golang.org/concurrency/1:
+```go
+import (
+    "fmt"
+    "time"
+)
+
+func say(s string) {
+    for i := 0; i < 5; i++ {
+        time.Sleep(100 * time.Millisecond)
+        fmt.Println(s)
+    }
+}
+
+func main() {
+    fmt.Println("start")
+    go say("world") // It runs in background
+    say("hello") // It runs without waiting for the earlier instruction to finish
+    fmt.Println("end")
+}
+```
+
+
+## Channels
+
+Channels is a mechanism to send and receive values. It's specially useful to be used with the goroutines because it allows goroutines to synchronize without explicit locks or condition variables.
+
+```go
+ch := make(chan int) // Create the channel
+
+ch <- v    // Send v to channel ch.
+v := <-ch  // Receive from ch, and
+           // assign value to v.
+```
+
+A channel doesn't support arrays (struct?) so using Buffered channels come in handy for that.
+
+### Buffered channel
+
+```go
+ch := make(chan int, 10)
+// you can get the capacity of a buffered channel
+fmt.Println(cap(ch))
+```
+
+### Check if channel is closed
+
+You can know if there are more elements on the channel by adding a second variable when reads from the channel: 
+```go
+v, ok := <-ch
+```
+if ok is false, there isn't any more elements on the channel.
+
+### Close a channel
+
+Only the sender should close the channel, although usually this isn't necessary to do it explicitly.
+```go
+close(channel)
+```
+
+### Range
+
+To loop over the elements from a channel:
+```go
+for i := range channel
+```
+
+### Fibonacci example
+
+```go
+func fibonacci(n int, c chan int) {
+    x, y := 0, 1
+    time.Sleep(100 * time.Millisecond)
+    for i := 0; i < n; i++ {
+        c <- x
+        x, y = y, x+y
+        time.Sleep(100 * time.Millisecond) // With this time to wait between fibonacci numbers we check that the `range` instruction consumes data from the channel as long as they turn up there _until the channel is closed_.
+    }
+    close(c) // when the channel is closed the range instruction finishes.
+}
+
+func main() {
+    c := make(chan int, 10)
+    go fibonacci(cap(c), c) // this runs in background, while the for loop is running the channel is being populated with data within the fibonacci function.
+    for i := range c {
+        fmt.Println(i)
+    }
+}
+```
+
+### Select
+
+```go
+```
+
+
+## Libraries
+
+Top GoLang libraries: https://golanglibs.com/top
+
+
+----
+
+## Comparativa, por qué usar Go
+
+> We use Go at ParallelDots to handle concurrent web requests (We already handle upto 3000 concurrent users in production). While most of our Machine Learning layer is written in Python, python's concurrency model was a poor choice in handling many parallel related requests (out of which many were duplicated, but not arriving at enough latency to get them cached). There are also some other inter-request constraints, which were easy to implement using channels.
+> Go's concurrency model is very easy and intuitive (although it is also very opinionated and IMHO very optimized for Google-like use case servers). It also has one of the best http handlers written.  [TechEmpower Web Framework Performance Comparison](https://www.techempower.com/benchmarks/#section=data-r10&hw=ec2&test=json)
+> If one is thinking of writing web services with precise control and finds C++ huge to learn in available time , I think Go is one of the best languages around (elixir being close).
+https://www.quora.com/What-is-golang-good-for
+
+
+## para aprender
+
+https://golangbot.com/
+https://tour.golang.org/concurrency/1
