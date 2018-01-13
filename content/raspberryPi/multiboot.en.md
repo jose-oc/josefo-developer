@@ -36,3 +36,10 @@ umount /media/jose/3A5E-4A9C
 ### Start up the Raspberry PI
 
 Set up the Raspberry Pi, SDCard in it, connected to the TV or monitor, keyboard and mouse.
+
+Ahora se instalará el OS que se elija en el menú.
+
+Probar a conectar la Raspi al HDMI CEC para manejar el menú inicial desde el mando de la tele.
+
+
+Se puede instalar otros OS que no están en el menú de BerryBoot: http://www.berryterminal.com/doku.php/berryboot/adding_custom_distributions
