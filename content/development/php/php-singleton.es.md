@@ -13,6 +13,7 @@ Un patrón Singleton normal, muy útil para cuidar que un objeto no se instancie
 Ojo, en PHP cada conexión al servidor es única, es decir que al contrario que en Java no se guarda nada en memoria entre conexiones (stateless), por tanto el Singleton devolverá una instancia por conexión al servidor web.
 
 ```php
+<?php
 class SingletonClass {
 
     /**
@@ -58,4 +59,5 @@ class SingletonClass {
     public function __destruct() {}
 
 }
+?>
 ```

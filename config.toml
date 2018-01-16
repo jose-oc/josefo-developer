@@ -12,6 +12,12 @@ defaultContentLanguageInSubdir= true
 
 googleAnalytics = "UA-108826494-1"
 
+pygmentsStyle = "vim" #"monokai"
+pygmentsUseClassic = false # to use Chroma (syntax highlighter by Go) instead of pygments (python)
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsOptions = ""
+
 # To build the project into this folder (docs is the one used by github to create the static website)
 # publishDir = "docs"
 
@@ -32,6 +38,10 @@ googleAnalytics = "UA-108826494-1"
   disableLanguageSwitchingButton = false
   # Order sections in menu by "weight" or "title". Default to "weight"
   ordersectionsby = "weight" # ordersectionsby = "title"
+
+  # Syntax highlight
+  highlightClientSide = false # set true to use highlight.pack.js instead of the default hugo chroma highlighter
+
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = ""
   themeStyle = "original" # "original" or "flex" # default "original"
