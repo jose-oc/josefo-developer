@@ -1,5 +1,5 @@
 ---
-title: Refactorizar legacy code usando un patrón Factory
+title: Ejemplo de patrón Factory
 date: 2015-11-01T03:15:09+00:00
 categories:
   - Coding
@@ -10,33 +10,22 @@ tags:
   - patrones de diseño
 
 ---
-<p style="text-align: justify">
-  Vamos a poner un ejemplo de cómo podemos usar un patrón de diseño para refactorizar código en el que se ha usado un if (podría ser un switch case) para elegir qué función aplicar dependiendo de un parámetro.
-</p>
 
-<p style="text-align: justify">
-  Este caso se puede dar con cierta frecuencia, un parámetro nos puede indicar que apliquemos distinta forma de procesar dando el mismo tipo de resultado.
-</p>
+## Refactorizar legacy code usando un patrón Factory
 
-<p style="text-align: justify">
-  Se ha querido poner un ejemplo muy sencillo para poner el foco de atención en cómo se realiza la refactorización. En este ejemplo el código deberá aplicar una operación matemática básica: sumar, restar, multiplicar o dividir a dos números enteros. Los argumentos del programa por tanto serán éstos: dos números enteros y la operación a realizar.
-</p>
+Vamos a poner un ejemplo de cómo podemos usar un patrón de diseño para refactorizar código en el que se ha usado un if (podría ser un switch case) para elegir qué función aplicar dependiendo de un parámetro.
 
-<h1 style="text-align: justify">
-  Step 1: Código inicial
-</h1>
+Este caso se puede dar con cierta frecuencia, un parámetro nos puede indicar que apliquemos distinta forma de procesar dando el mismo tipo de resultado.
 
-<p style="text-align: justify">
-  El primer paso será mostrar el programa usando un if que en función de la operación llame a la clase que se encargue de realizar la operación matemática. Podemos ver el código completo aquí: <a href="https://github.com/jose-oc/refactoring.switchifstatement/tree/946de0377cdb692d02ec10b4cceab196379334c5" target="_blank">https://github.com/jose-oc/refactoring.switchifstatement/tree/946de0377cdb692d02ec10b4cceab196379334c5</a>
-</p>
+Se ha querido poner un ejemplo muy sencillo para poner el foco de atención en cómo se realiza la refactorización. En este ejemplo el código deberá aplicar una operación matemática básica: sumar, restar, multiplicar o dividir a dos números enteros. Los argumentos del programa por tanto serán éstos: dos números enteros y la operación a realizar.
 
-<p style="text-align: justify">
-  Debemos fijarnos en estas líneas de código. Es un if donde en función del parámetro que indica la operación a realizar se llama a una clase u otra:
-</p>
 
-<p style="text-align: justify">
-  <a href="https://github.com/jose-oc/refactoring.switchifstatement/blob/946de0377cdb692d02ec10b4cceab196379334c5/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/Operator.java#L42-L64" target="_blank">https://github.com/jose-oc/refactoring.switchifstatement/blob/946de0377cdb692d02ec10b4cceab196379334c5/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/Operator.java#L42-L64</a>
-</p>
+###  Step 1: Código inicial
+
+El primer paso será mostrar el programa usando un _if_ que en función de la operación llame a la clase que se encargue de realizar la operación matemática. Podemos ver el código completo en [github.com/jose-oc/refactoring.switchifstatement](https://github.com/jose-oc/refactoring.switchifstatement/tree/946de0377cdb692d02ec10b4cceab196379334c5) 
+
+
+Debemos fijarnos [en estas líneas de código](https://github.com/jose-oc/refactoring.switchifstatement/blob/946de0377cdb692d02ec10b4cceab196379334c5/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/Operator.java#L42-L64): un _if_ donde en función del parámetro que indica la operación a realizar se llama a una clase u otra:
 
 ```java
 public int performOperation() 
@@ -64,26 +53,22 @@ public int performOperation()
     }
 ```
 
-<h1 style="text-align: justify">
-  Step 2: Factory class
-</h1>
+###  Step 2: Factory class
 
-<p style="text-align: justify">
-  En primer lugar refactorizamos la clase creando una nueva clase que haga las funciones de factoría para instanciar una nueva clase que sea la que realiza la operación. De esta forma reducimos el if anterior a un par de líneas:
-</p>
+En primer lugar refactorizamos la clase creando una nueva clase que haga las funciones de factoría para instanciar una nueva clase que sea la que realiza la operación. De esta forma reducimos el if anterior a un par de líneas:
 
 ```java
 BinaryOperation executor = BinaryOperationFactory.getInstance(operation);
 return executor.execute(operand1, operand2);
 ```
 
-<p style="text-align: justify">
-  El tipo que devuelve la factoría es un <strong>nuevo interfaz</strong> (BinaryOperation) que es implementado por las cuatro clases de las operaciones matemáticas:
-</p>
 
-<p style="text-align: justify">
-  Interfaz:
-</p>
+El tipo que devuelve la factoría es un <strong>nuevo interfaz</strong> (BinaryOperation) que es implementado por las cuatro clases de las operaciones matemáticas:
+
+
+
+Interfaz:
+
 
 ```java
 public interface BinaryOperation {
@@ -91,9 +76,9 @@ public interface BinaryOperation {
 }
 ```
 
-<p style="text-align: justify">
-  Ejemplo de clase que lo implementa:
-</p>
+
+Ejemplo de clase que lo implementa:
+
 
 ```java
 public final class AdditionExecutor implements BinaryOperation 
@@ -106,9 +91,9 @@ public final class AdditionExecutor implements BinaryOperation
 }
 ```
 
-<p style="text-align: justify">
-  Por último echemos un ojo a la factoría, que no es más que el mismo if que teníamos inicialmente, ligeramente modificado por los cambios en las clases que realizan las operaciones matemáticas.
-</p>
+
+Por último echemos un ojo a la factoría, que no es más que el mismo if que teníamos inicialmente, ligeramente modificado por los cambios en las clases que realizan las operaciones matemáticas.
+
 
 ```java
 public final class BinaryOperationFactory {
@@ -131,27 +116,26 @@ public final class BinaryOperationFactory {
             throw new InvalidOperatorException(operation);
         }
     }
-```
-
-
-<p style="text-align: justify">
-  Podemos ver los cambios aplicados entre el código inicial y éste aquí: <a href="https://github.com/jose-oc/refactoring.switchifstatement/commit/4414b80b62a137c81c18cadfd60a9d7c0e2715ec" target="_blank">https://github.com/jose-oc/refactoring.switchifstatement/commit/4414b80b62a137c81c18cadfd60a9d7c0e2715ec</a>
-</p>
-
-Y el código completo de este paso aquí: <a href="https://github.com/jose-oc/refactoring.switchifstatement/tree/4414b80b62a137c81c18cadfd60a9d7c0e2715ec" target="_blank"><a href="https://github.com/jose-oc/refactoring.switchifstatement/tree/4414b80b62a137c81c18cadfd60a9d7c0e2715ec">https://github.com/jose-oc/refactoring.switchifstatement/tree/4414b80b62a137c81c18cadfd60a9d7c0e2715ec</a></a>
-
-# Step 3: Usar properties
-
-<p style="text-align: justify">
-  Ahora vamos a extender el código para poder cambiar el comportamiento de una operación matemática sin necesidad de compilar o añadir nuevas operaciones fácilmente. Esto lo haremos con un archivo properties encargado de especificar qué clase es la encargada de realizar una operación matemática. De esta forma si queremos una nueva operación tan sólo implementaremos la clase y la añadiremos al properties o si queremos realizar una nueva implementación de una clase simplemente escribiremos la nueva clase y en el properties cambiamos qué clase implementa la operación.
-</p>
-
-<p style="text-align: justify">
-  Veamos cómo es éste properties:
-</p>
 
 ```
-# This file holds the association between the operation and the class which implements it.
+
+Podemos ver los cambios aplicados entre el código inicial y éste en el commit [4414b80b62a137c81c18cadfd60a9d7c0e2715ec](https://github.com/jose-oc/refactoring.switchifstatement/commit/4414b80b62a137c81c18cadfd60a9d7c0e2715ec). 
+
+
+Y el código completo de este paso aquí en [4414b80b62a137c81c18cadfd60a9d7c0e2715ec](https://github.com/jose-oc/refactoring.switchifstatement/tree/4414b80b62a137c81c18cadfd60a9d7c0e2715ec)
+
+
+### Step 3: Usar properties
+
+Ahora vamos a extender el código para poder cambiar el comportamiento de una operación matemática sin necesidad de compilar o añadir nuevas operaciones fácilmente. Esto lo haremos con un archivo properties encargado de especificar qué clase es la encargada de realizar una operación matemática. De esta forma si queremos una nueva operación tan sólo implementaremos la clase y la añadiremos al properties o si queremos realizar una nueva implementación de una clase simplemente escribiremos la nueva clase y en el properties cambiamos qué clase implementa la operación.
+
+
+
+Veamos cómo es este properties:
+
+
+```
+## This file holds the association between the operation and the class which implements it.
 
 ADDITION=es.joseoc.learning.java.refactoring.switchifstatement.math.operation.AdditionExecutor
 SUBTRACTION=es.joseoc.learning.java.refactoring.switchifstatement.math.operation.SubractionExecutor
@@ -159,9 +143,9 @@ MULTIPLICATION=es.joseoc.learning.java.refactoring.switchifstatement.math.operat
 DIVISION=es.joseoc.learning.java.refactoring.switchifstatement.math.operation.DivisionExecutor
 ```
 
-<p style="text-align: justify">
-  Se ha modificado el BinaryOperationFactory para hacer uso de este properties, leyéndolo e instanciando la clase especificada en él mediante reflexión. Esta clase merece verse en detalle al completo (aquí el link <a href="https://github.com/jose-oc/refactoring.switchifstatement/blob/7ac01221089c78b1e29a7e48010119d45b9befde/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/math/operation/factory/BinaryOperationFactory.java#L21-L26" target="_blank">https://github.com/jose-oc/refactoring.switchifstatement/blob/7ac01221089c78b1e29a7e48010119d45b9befde/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/math/operation/factory/BinaryOperationFactory.java#L21-L26</a>) pero destacamos el método que devuelve la instancia requerida, aquí es donde estaba el if que ya ha desaparecido:
-</p>
+
+Se ha modificado el *BinaryOperationFactory* para hacer uso de este properties, leyéndolo e instanciando la clase especificada en él mediante reflexión. Esta clase merece verse en detalle al completo [BinaryOperationFactory.java#L21-L26](https://github.com/jose-oc/refactoring.switchifstatement/blob/7ac01221089c78b1e29a7e48010119d45b9befde/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/math/operation/factory/BinaryOperationFactory.java#L21-L26) 
+, pero destacamos el método que devuelve la instancia requerida, aquí es donde estaba el if que ya ha desaparecido:
 
 ```java
 public static BinaryOperation getInstance(Operation operation) {
@@ -172,23 +156,23 @@ public static BinaryOperation getInstance(Operation operation) {
 }
 ```
 
-<p style="text-align: justify">
-  Merece la pena destacar el uso de las excepciones aquí ya que para cada tipo de excepción se ha creado una unchecked exception como inner class. Como campos de la excepción está la información relevante a ella y en el constructor (super) se especifica en detalle lo ocurrido.
-</p>
 
-# Step 4: registrar las clases automáticamente
+Merece la pena destacar el uso de las excepciones aquí ya que para cada tipo de excepción se ha creado una unchecked exception como inner class. Como campos de la excepción está la información relevante a ella y en el constructor (super) se especifica en detalle lo ocurrido.
 
-<p style="text-align: justify">
-  En este paso nos deshacemos del properties, en su lugar se escanean las clases de forma que se detecte qué clases implementan las operaciones matemáticas y qué tipo de operación y automáticamente se registran en el factory para poder devolver una instancia de la que se requiera.
-</p>
 
-<p style="text-align: justify">
-  Para hacer esto se ha optado por crear una anotación para indicar qué clase implementa una operación matemática y el tipo. Una alternativa podría haber sido buscar las clases que implementen el interfaz y haberle añadido un método que devolviera el tipo de operación.
-</p>
+### Step 4: registrar las clases automáticamente
 
-<p style="text-align: justify">
-  Anotación:
-</p>
+
+En este paso nos deshacemos del properties, en su lugar se escanean las clases de forma que se detecte qué clases implementan las operaciones matemáticas y qué tipo de operación y automáticamente se registran en el factory para poder devolver una instancia de la que se requiera.
+
+
+
+Para hacer esto se ha optado por crear una anotación para indicar qué clase implementa una operación matemática y el tipo. Una alternativa podría haber sido buscar las clases que implementen el interfaz y haberle añadido un método que devolviera el tipo de operación.
+
+
+
+Anotación:
+
 
 ```java
 @Target(ElementType.TYPE)
@@ -198,18 +182,18 @@ public @interface BinaryOperationExecutor {
 }
 ```
 
-<p style="text-align: justify">
-  Ejemplo de clase que la implementa:
-</p>
+
+Ejemplo de clase que la implementa:
+
 
 ```java
 @BinaryOperationExecutor(type = Operation.ADDITION)
 public final class AdditionExecutor implements BinaryOperation
 ```
 
-<p style="text-align: justify">
-  Y en el factory se ha añadido un mapa para guardar las clases registradas para cada operación. Además un método que lo inicializa.
-</p>
+
+Y en el factory se ha añadido un mapa para guardar las clases registradas para cada operación. Además un método que lo inicializa.
+
 
 ```java
 public final class BinaryOperationFactory {
@@ -223,20 +207,19 @@ public final class BinaryOperationFactory {
     }
 ```
 
-Invito a echar un ojo a la clase para ver cómo se escanéan las clases y se registran: <a href="https://github.com/jose-oc/refactoring.switchifstatement/blob/397fdb11193f7972338c4c6d9d3a49a19f143672/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/math/operation/factory/BinaryOperationFactory.java" target="_blank"><a href="https://github.com/jose-oc/refactoring.switchifstatement/blob/397fdb11193f7972338c4c6d9d3a49a19f143672/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/math/operation/factory/BinaryOperationFactory.java">https://github.com/jose-oc/refactoring.switchifstatement/blob/397fdb11193f7972338c4c6d9d3a49a19f143672/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/math/operation/factory/BinaryOperationFactory.java</a></a>
+Invito a echar un ojo a la clase [BinaryOperationFactory.java](https://github.com/jose-oc/refactoring.switchifstatement/blob/397fdb11193f7972338c4c6d9d3a49a19f143672/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/math/operation/factory/BinaryOperationFactory.java) para ver cómo se escanéan las clases y se registran.
 
-<p style="text-align: left">
-  Cambios respecto al step anterior: <a href="https://github.com/jose-oc/refactoring.switchifstatement/compare/master...Scanning_classes" target="_blank">https://github.com/jose-oc/refactoring.switchifstatement/compare/master&#8230;Scanning_classes</a>
-</p>
 
-<p style="text-align: justify">
-  Todo el código: <a href="https://github.com/jose-oc/refactoring.switchifstatement/tree/397fdb11193f7972338c4c6d9d3a49a19f143672" target="_blank">https://github.com/jose-oc/refactoring.switchifstatement/tree/397fdb11193f7972338c4c6d9d3a49a19f143672</a>
-</p>
+Cambios respecto al paso anterior [diff master...Scanning_classes](https://github.com/jose-oc/refactoring.switchifstatement/compare/master...Scanning_classes) 
 
-# Patrón Builder
 
-<p style="text-align: justify">
-  Por cierto, en este ejemplo se puede observar el <strong>patrón Builder</strong> que se ha aplicado para crear instancias de la clase Operator.
-</p>
+Todo el código: https://github.com/jose-oc/refactoring.switchifstatement/tree/397fdb11193f7972338c4c6d9d3a49a19f143672
 
-<a href="https://github.com/jose-oc/refactoring.switchifstatement/blob/397fdb11193f7972338c4c6d9d3a49a19f143672/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/Operator.java#L46-L74" target="_blank"><a href="https://github.com/jose-oc/refactoring.switchifstatement/blob/397fdb11193f7972338c4c6d9d3a49a19f143672/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/Operator.java#L46-L74">https://github.com/jose-oc/refactoring.switchifstatement/blob/397fdb11193f7972338c4c6d9d3a49a19f143672/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/Operator.java#L46-L74</a></a>
+
+### Patrón Builder
+
+
+Por cierto, en este ejemplo se puede observar el **patrón Builder** que se ha aplicado para crear instancias de la clase Operator.
+
+
+https://github.com/jose-oc/refactoring.switchifstatement/blob/397fdb11193f7972338c4c6d9d3a49a19f143672/src/main/java/es/joseoc/learning/java/refactoring/switchifstatement/Operator.java#L46-L74
