@@ -57,6 +57,18 @@ Este parámetro indica que se debe establecer un I-frame cada vez que se cumpla 
 `t` también es una palabra reservada: el tiempo del frame actual.
 
 
+## Evitando extra keyframes
+
+Con el comando anterior no se evita que ffmpeg añada I-frames si lo ve conveniente, lo que sí se puede evitar si en lugar de los parámetros anteriores se usan estos dos, indicando que (en este ejemplo) cada 48 frames como mínimo tiene que poner un i-frame y cada 48 frames como máximo tiene que poner un i-frame, con lo cual estamos definiendo exactamente dónde deben estar los i-frames.
+
+`-g 48 -keyint_min 48` 
+
+Ejemplo de llamada ffmpeg: 
+
+```bash
+ffmpeg -i input_video.mp4 -y -ss 0 -t 15 -aspect 16:9 -g 48 -keyint_min 48 -sc_threshold 0 output.mp4
+```
+
 
 ## Comprobar dónde están los keyframes
 
@@ -68,13 +80,21 @@ ffprobe -select_streams v -show_frames -print_format json video.mp4 > video.show
 
 Verás que el json contiene mucha información de cada uno de los frames.
 
-Usando un poco de bash se pueden filtrar cuáles son los i-frames:
+Usando un poco de bash se pueden filtrar cuáles son los i-frames (los números de frame que son i-frames):
 
 ```bash
 ffprobe -select_streams v -show_frames \
 -show_entries frame=pict_type \
--of csv video.mp4 \
-| grep -n I | cut -d ':' -f 1 > video.i-frames.txt
+-of csv ${VIDEO_FILENAME} \
+| grep -n I | cut -d ':' -f 1 > keyframes_number.txt
+```
+
+O bien ver en qué **tiempos** están los i-frames:
+
+```bash
+ffprobe -select_streams v:0 -show_frames \
+-print_format csv ${VIDEO_FILENAME} \
+| awk -F ',' '{ if ($4 > 0) print $6; }' > keyframes_times.txt
 ```
 
 Gracias a [slhck](https://superuser.com/questions/885452/extracting-the-index-of-key-frames-from-a-video-using-ffmpeg)

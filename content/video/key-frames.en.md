@@ -54,6 +54,20 @@ The parameter `n_forced` is a keyword to say the number of forced frames.
 The parameter `t` is also a keyword to say the time of the processed frame.
 
 
+## Avoid extra keyframes
+
+With the previous command we won't avoid ffmpeg to add extra I-frames when the application considers appropriate, in case we wanted to avoid this behaviour we'd need to add these parameters:
+
+`-g 48 -keyint_min 48`
+
+In this example we're saying that every 48 frames as maximum it should be an i-frame (_-g_ param) and every 48 frames as minimum (_-keyint_min_ param) it should be an i-frame so we're specifying the exact position of the i-frames.
+
+An example of ffmpeg command using these parameters:
+
+```bash
+ffmpeg -i input_video.mp4 -y -ss 0 -t 15 -aspect 16:9 -g 48 -keyint_min 48 -sc_threshold 0 output.mp4
+```
+
 
 ## How to check where the key frames are
 
@@ -65,13 +79,21 @@ ffprobe -select_streams v -show_frames -print_format json video.mp4 > video.show
 
 A json file is generated and can be quite large if the video file is big, there will be some information per frame.
 
-Applying a bit of bash you can filter the i-frames:
+Applying a bit of bash you can filter the i-frames numbers:
 
 ```bash
 ffprobe -select_streams v -show_frames \
 -show_entries frame=pict_type \
--of csv video.mp4 \
-| grep -n I | cut -d ':' -f 1 > video.i-frames.txt
+-of csv ${VIDEO_FILENAME_OR_URL} \
+| grep -n I | cut -d ':' -f 1 > keyframes_number.txt
+```
+
+Or extract the **times** where those i-frames are:
+
+```bash
+ffprobe -select_streams v:0 -show_frames \
+-print_format csv ${VIDEO_FILENAME_OR_URL} \
+| awk -F ',' '{ if ($4 > 0) print $6; }' > keyframes_times.txt
 ```
 
 Thanks to [slhck](https://superuser.com/questions/885452/extracting-the-index-of-key-frames-from-a-video-using-ffmpeg)
