@@ -1,14 +1,15 @@
 #baseURL = "/"
 baseURL = "https://www.joseoc.com/"
 languageCode = "en-US"
-defaultContentLanguage = "en"
+DefaultContentLanguage = "en"
 
 title = "Josefo developer"
 theme = "docdock"
-#theme = "hugo-theme-learn"
-#themesdir = "../.."
+
 metaDataFormat = "yaml"
+defaultContentLanguage = "en"
 defaultContentLanguageInSubdir= true
+enableMissingTranslationPlaceholders = false # useful in development time to find untranstaled words
 
 googleAnalytics = "UA-108826494-1"
 
@@ -38,13 +39,16 @@ pygmentsOptions = ""
   disableLanguageSwitchingButton = false
   # Order sections in menu by "weight" or "title". Default to "weight"
   ordersectionsby = "weight" # ordersectionsby = "title"
+  disableNavChevron = false # set true to hide next/prev chevron, default is false
+  menushortcutsnewtab = false # set true to open shortcuts links to a new tab/window
+  enableGitInfo = true
 
   # Syntax highlight
   highlightClientSide = false # set true to use highlight.pack.js instead of the default hugo chroma highlighter
 
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = ""
-  themeStyle = "original" # "original" or "flex" # default "original"
+  themeStyle = "flex" # "original" or "flex" # default "flex"
   [params.ga]
     async = true
 
