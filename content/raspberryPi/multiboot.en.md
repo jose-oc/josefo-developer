@@ -43,3 +43,10 @@ Probar a conectar la Raspi al HDMI CEC para manejar el menú inicial desde el ma
 
 
 Se puede instalar otros OS que no están en el menú de BerryBoot: http://www.berryterminal.com/doku.php/berryboot/adding_custom_distributions
+
+
+### Install different distros
+
+You can install other distros that don't appear on the start-up menu. 
+The site https://berryboot.alexgoldcheidt.com/images/ has a lot of images prepared to be used with BerryBoot. Just check out the version of the raspberry Pi which is prepared to. 
+Download it, uncompress it and copy it to the SDCard.
