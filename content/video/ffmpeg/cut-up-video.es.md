@@ -3,6 +3,8 @@ title: "Cut Up Video"
 date: 2017-11-29T16:25:11+01:00
 description: "Cómo cortar un trozo de un vídeo usando ffmpeg"
 draft: false
+tags:
+  - ffmpeg
 ---
 
 Para extraer un trozo de un vídeo usando ffmpeg puedes usar este comando:
