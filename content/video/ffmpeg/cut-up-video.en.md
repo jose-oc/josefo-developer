@@ -3,6 +3,8 @@ title: "Cut Up Video"
 date: 2017-11-29T16:25:09+01:00
 description: "How to cut up a video using ffmpeg"
 draft: false
+tags:
+  - ffmpeg
 ---
 
 In order to cut up and extract part of a video you can do it with this command: 
