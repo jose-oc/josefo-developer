@@ -2,7 +2,7 @@
 title: "Extract Images From Video"
 date: 2018-07-05T12:40:33+02:00
 description: "How to extract images from a video using ffmpeg"
-draft: true
+draft: false
 tags:
   - ffmpeg
 ---
