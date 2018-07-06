@@ -14,10 +14,10 @@ Some people call these images _thumbnails_, however I think a thumbnails is a sm
 <!-- more -->
 
 I'm going to prepare a 10-second length video to work on this. 
-Download the [Big Buck Bunny video](http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_stereo.avi) and cut it to have 10 seconds this way:
+Download the [Big Buck Bunny video](http://download.blender.org/peach/bigbuckbunny_movies/) and cut it to have 10 seconds this way:
 
 ```
-ffmpeg -ss 00:02:50.0 -i big_buck_bunny_720p_stereo.avi -t 00:00:10.0 video.mp4
+ffmpeg -ss 00:02:50.0 -i http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_stereo.avi -t 00:00:10.0 video.mp4
 ```
 
 ## Extract images
@@ -80,13 +80,14 @@ ffmpeg -i video.mp4 -f image2 -filter:v "fps=1/2,scale='-1':'min(500,ih)'" -y ou
 
 
 
+----
 
 
 ## Getting the timestamp for the images
 
-The images extracted from the video don't have any information about what was its time in the original video and I want to have that information so let's try to figure it out.
+The images extracted from the video don't have any information about what was its time in the original video, which might be specially useful if you extract a number of images by interval, let's say every X seconds. I want to have that information so let's try to figure it out.
 
-First, I'm going to print the timestamp of every frame in the image itself the same way we can see subtitles in the video.
+Firstly, I'm going to print the timestamp of every frame in the image itself the same way we can see subtitles in the video.
 
 
 ### Print the timestamp in the images
@@ -96,7 +97,9 @@ First, I'm going to print the timestamp of every frame in the image itself the s
 This command extracts all the frames from the input video and every one has its timestamp printed out.
 
 ```
-ffmpeg -i video.mp4 -vf "drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf: text='%{pts\:hms}': x=(w-tw)/2: y=h-(2*lh): fontcolor=white: box=1: boxcolor=0x00000000@1" out_with_timestamp_%03d.png
+ffmpeg -i video.mp4 \
+-vf "drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf: text='%{pts\:hms}': x=(w-tw)/2: y=h-(2*lh): fontcolor=white: box=1: boxcolor=0x00000000@1" \
+out_with_timestamp_%03d.png
 ```
 
 It generates 240 frames, as expected.
@@ -108,7 +111,9 @@ It generates 240 frames, as expected.
 That's fine if you want all the frames, but I only want either specific frames or extract frames by some interval. Let's extract an image every 5 seconds using the fps video filter as we've seen previously:
 
 ```
-ffmpeg -i video.mp4 -vf "fps=fps=1/5,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf: text='%{pts\:hms}': x=(w-tw)/2: y=h-(2*lh): fontcolor=white: box=1: boxcolor=0x00000000@1" out_with_timestamp_%03d.png
+ffmpeg -i video.mp4 \
+-vf "fps=fps=1/5,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf: text='%{pts\:hms}': x=(w-tw)/2: y=h-(2*lh): fontcolor=white: box=1: boxcolor=0x00000000@1" \
+out_with_timestamp_%03d.png
 ```
 
 Well, we've got 2 images, let's see them:
@@ -123,7 +128,9 @@ We can see the timestaps are: second 0 and second 5. Let's continue and we'll se
 
 ### Get timestamp with ffprobe
 
-ffprobe can help us to know the timestamp of every frame in the video so we can use it to know the timestamp of the frames that we've extracted by simulating the same video filter we applied with ffmpeg, i.e. `fps`.
+I don't really want to have the timestamp printed in the image, I want to have that data externally or as metadata.
+
+The command ffprobe can help us know the timestamp of every frame in the video so we can use it to know the timestamp of the frames that we've extracted by simulating the same video filter we applied with ffmpeg, i.e. `fps`.
 
 Let's say we extract a frame every 5 seconds with this command:
 
@@ -134,7 +141,9 @@ ffmpeg -i video.mp4 -f image2 -filter:v "fps=1/5" fps_1-5_%02d.jpg
 Now we can simulate this with ffprobe extracting the timestamps.
 
 ```
-ffprobe -hide_banner -i "movie=video.mp4,fps=fps=1/5[out0]" -f lavfi -show_frames -show_entries frame=pkt_pts_time -of csv=p=0
+ffprobe -hide_banner \
+-i "movie=video.mp4,fps=fps=1/5[out0]" \
+-f lavfi -show_frames -show_entries frame=pkt_pts_time -of csv=p=0
 ```
 
 Result:
@@ -150,10 +159,11 @@ Input #0, lavfi, from 'movie=video.mp4,fps=fps=1/5[out0]':
 The same thing can be achieved with one command only:
 
 ```
-ffmpeg -hide_banner -i video.mp4 -f image2 -filter:v "[in]fps=1/5[s1];[s1]showinfo[out]" fps_1-5_%02d.jpg
+ffmpeg -hide_banner -i video.mp4 \
+-f image2 -filter:v "[in]fps=1/5[s1];[s1]showinfo[out]" fps_1-5_%02d.jpg
 ```
 
-The result of that command, apart from the images, is:
+The result of that command, apart from the image files, is:
 
 ```
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'video.mp4':
@@ -193,26 +203,28 @@ frame=    2 fps=0.0 q=2.2 Lsize=N/A time=00:00:10.00 bitrate=N/A speed=29.2x
 video:144kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
 ```
 
-The time of the extracted frames are given by the value of **pts_time**, and according to ffmpeg they're the second 0 and second 5. 
+The timestamp of the extracted frames are given by the value of **pts_time**, and according to ffmpeg they're the second 0 and second 5 (_PTS: Presentation TimeStamp_). 
 This is, the frames are extracted at these points of the video:
 
 ![frames at beginning](/video/ffmpeg/extract-images-from-video/extrac_images_start_period.svg?classes=border,shadow)
 
-As we can see in the graphic, we're dividing the video in 2 periods of 5 seconds and it seems the images are extracted at the very beginning of these periods, as ffprobe says. However **this isn't accurate**. In fact, ffmpeg extracts the images in the middle of those periods so the first frame is the second 2.5 and the second one is in the second 7.5 roughly of the original video. I mean, what ffmpeg does is this:
+As we can see in the graphic, we're dividing the video in 2 periods of 5 seconds and it seems the images are extracted at the very beginning of these periods, as ffprobe says. However **this isn't accurate**. 
+
+In fact, ffmpeg extracts the images in the middle of those periods so the first frame is the second 2.5 and the second one is in the second 7.5 roughly of the original video. I mean, what ffmpeg does is this:
 
 ![frames at the middle](/video/ffmpeg/extract-images-from-video/extrac_images_middle_period.svg?classes=border,shadow)
 
 
-Let's confirm this, let's extract the frames for those seconds:
+Let's confirm this, let's extract the frames for those seconds and check if these images are the same extracted when we use ffmpeg with the fps filter (extrating by interval):
 
 ```
-ffmpeg -ss 2.5 -i video.mp4 -vframes 1 ss_2-5.jpg
-ffmpeg -ss 7.48 -i video.mp4 -vframes 1 ss_7-48.jpg
+ffmpeg -ss 2.458 -i video.mp4 -frames:v 1 ss_2-458.jpg
+ffmpeg -ss 7.48 -i video.mp4 -frames:v 1 ss_7-48.jpg
 ```
 
-If we compare these images with the ones shown [above]({{% relref "#frames-by-interval" %}}) we can see they're the same frame but the timestamp printed in them are wrong, they say 00:00:00.000 and 00:00:05.000 but in reallity their timestamps are 00:00:02.500 and 00:00:07.480.
+If we compare these images with the ones shown [above]({{% relref "#frames-by-interval" %}}) we can see they're the same frame but the timestamp printed in them are wrong, they say 00:00:00.000 and 00:00:05.000 but in reallity their actual timestamps are 00:00:02.458 and 00:00:07.480.
 
-![frame at second 2.5](/video/ffmpeg/extract-images-from-video/ss_2-5.jpg?classes=border,shadow)
+![frame at second 2.5](/video/ffmpeg/extract-images-from-video/ss_2-458.jpg?classes=border,shadow)
 ![frame at second 7.48](/video/ffmpeg/extract-images-from-video/ss_7-48.jpg?classes=border,shadow)
 
 
