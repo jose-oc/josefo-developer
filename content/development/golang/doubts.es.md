@@ -36,3 +36,8 @@ From the [survey2016](https://blog.golang.org/survey2016-results)
 - Go is easier to debug than C (even absent a debugger). (same as above)
 - Go has better modularity, tooling, testing, profiling, etc (show me)
 - Go makes parallel execution trivial.
+
+
+------
+
+- How to use `Panic` and `Recover` (see The Go Programming Language, Kernaghan)
