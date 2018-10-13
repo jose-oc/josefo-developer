@@ -36,3 +36,7 @@ From the [survey2016](https://blog.golang.org/survey2016-results)
 - Go is easier to debug than C (even absent a debugger). (same as above)
 - Go has better modularity, tooling, testing, profiling, etc (show me)
 - Go makes parallel execution trivial.
+
+-------
+
+- This blog compares concurrency between Java and Go: https://dev.to/napicellatwit/go-for-java-developers-or-is-the-java-concurrency-that-bad-6ff
