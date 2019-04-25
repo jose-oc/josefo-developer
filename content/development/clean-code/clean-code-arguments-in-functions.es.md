@@ -38,7 +38,7 @@ Recuerda que estamos trabajando en programación orientada a objetos luego podem
 </p>
 
 <p style="text-align: justify">
-  Un código que se comporte así es difícil de leer, no estamos acostumbrados a él. No hay forma de saberlo a priori. Recuerda que Java pasa todos los argumentos por valor aunque si se tratan de objetos su contenido puede ser modificado, como se explicó en este <a href="http://www.joseoc.com/blog/parametros-por-valor-o-por-referencia-en-java/">post</a>.
+  Un código que se comporte así es difícil de leer, no estamos acostumbrados a él. No hay forma de saberlo a priori. Recuerda que Java pasa todos los argumentos por valor aunque si se tratan de objetos su contenido puede ser modificado, como se explicó en este <a href="https://www.joseoc.com/blog/parametros-por-valor-o-por-referencia-en-java/">post</a>.
 </p>
 
 <p style="text-align: justify">

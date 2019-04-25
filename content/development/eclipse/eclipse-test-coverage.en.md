@@ -11,7 +11,7 @@ tags:
   
 ---
 <p style="text-align: justify">
-  There is a fantastic plugin for eclipse which I've been using to analyze the amount of code coverage by tests, this is: <a href="http://www.eclemma.org/" target="_blank"><strong>EclEmma</strong> Java Code Coverage for Eclipse</a>.
+  There is a fantastic plugin for eclipse which I've been using to analyze the amount of code coverage by tests, this is: <a href="https://www.eclemma.org/" target="_blank"><strong>EclEmma</strong> Java Code Coverage for Eclipse</a>.
 </p>
 
 <p style="text-align: justify">

@@ -6,7 +6,7 @@ tags:
 
 ---
 <p style="text-align: justify">
-  Let's say we have a table in a relational database (for this example I use Postgresql 9.3) without any key and we have duplicated data and we want to get rid of all these redundant data. To do so I'm going to draw on <a href="http://www.postgresql.org/docs/current/static/queries-with.html" target="_blank">Common Table Expressions</a> (CTE).
+  Let's say we have a table in a relational database (for this example I use Postgresql 9.3) without any key and we have duplicated data and we want to get rid of all these redundant data. To do so I'm going to draw on <a href="https://www.postgresql.org/docs/current/static/queries-with.html" target="_blank">Common Table Expressions</a> (CTE).
 </p>
 
 <p style="text-align: justify">

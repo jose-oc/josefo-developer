@@ -37,7 +37,7 @@ weight: 30
 </h1>
 
 <p style="text-align: justify">
-  A function is supposed to get any arguments and it can give a result as the return value but sometimes we find functions which use output arguments, this is <strong>arguments</strong> which <strong>will be modified inside de function</strong> so that we get the result of the function in it. We are not used to this and it is more difficult to read and understand besides we don't know which of the arguments of the function are going to change. Remember that the arguments in Java are always passed by value but if they are objects their content can be changed (read this <a href="http://www.joseoc.com/blog/parametros-por-valor-o-por-referencia-en-java/">post</a>).
+  A function is supposed to get any arguments and it can give a result as the return value but sometimes we find functions which use output arguments, this is <strong>arguments</strong> which <strong>will be modified inside de function</strong> so that we get the result of the function in it. We are not used to this and it is more difficult to read and understand besides we don't know which of the arguments of the function are going to change. Remember that the arguments in Java are always passed by value but if they are objects their content can be changed (read this <a href="https://www.joseoc.com/blog/parametros-por-valor-o-por-referencia-en-java/">post</a>).
 </p>
 
 <p style="text-align: justify">

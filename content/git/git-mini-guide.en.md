@@ -404,10 +404,10 @@ Check branches: `git branch --all`
 
 Create a new branch and track it: `git checkout --track origin/BRANCH_NAME`
 
- [1]: http://git-scm.com/book/en/v2/book/01-introduction/images/areas.png
- [2]: http://git-scm.com/book/en/v2/book/02-git-basics/images/lifecycle.png
- [3]: http://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Short-Status
- [4]: http://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files
- [5]: http://git-scm.com/book/en/v2/ch07/_git_stashing
- [6]: http://git-scm.com/book/en/v2/Git-Branching-Rebasing
- [7]: http://git-scm.com/book/en/v2/Git-Branching-Rebasing#The-Perils-of-Rebasing
+ [1]: https://git-scm.com/book/en/v2/book/01-introduction/images/areas.png
+ [2]: https://git-scm.com/book/en/v2/book/02-git-basics/images/lifecycle.png
+ [3]: https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Short-Status
+ [4]: https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files
+ [5]: https://git-scm.com/book/en/v2/ch07/_git_stashing
+ [6]: https://git-scm.com/book/en/v2/Git-Branching-Rebasing
+ [7]: https://git-scm.com/book/en/v2/Git-Branching-Rebasing#The-Perils-of-Rebasing

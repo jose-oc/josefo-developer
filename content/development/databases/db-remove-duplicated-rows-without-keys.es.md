@@ -13,7 +13,7 @@ tags:
 </p>
 
 <p style="text-align: justify">
-  Queremos eliminar todas estas duplicidades y para ello podemos echar mano de las CTE (<a href="http://www.postgresql.org/docs/current/static/queries-with.html" target="_blank">Common Table Expressions</a>).
+  Queremos eliminar todas estas duplicidades y para ello podemos echar mano de las CTE (<a href="https://www.postgresql.org/docs/current/static/queries-with.html" target="_blank">Common Table Expressions</a>).
 </p>
 
 <p style="text-align: justify">

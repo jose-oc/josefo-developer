@@ -13,7 +13,7 @@ tags:
   Suelo usar <strong>redmine</strong> como gestor de tareas y <strong>eclipse</strong> como mi IDE principal para programar, tanto en Java como en PHP.
 </p>
 
-<img class="decoded alignnone" src="http://2.bp.blogspot.com/-0eCQaME0TRg/ULerJTClnEI/AAAAAAAABag/tpAn1Onro8Q/s1600/ec_kepler.png" alt="Eclipse logo" width="211" height="211" /><img class="decoded alignnone" src="https://www.drupal.org/files/project-images/Redmine_logo_0.png" alt="redmine logo" width="212" height="212" />
+<img class="decoded alignnone" src="https://2.bp.blogspot.com/-0eCQaME0TRg/ULerJTClnEI/AAAAAAAABag/tpAn1Onro8Q/s1600/ec_kepler.png" alt="Eclipse logo" width="211" height="211" /><img class="decoded alignnone" src="https://www.drupal.org/files/project-images/Redmine_logo_0.png" alt="redmine logo" width="212" height="212" />
 
 
 <p style="text-align: justify">
@@ -36,8 +36,8 @@ tags:
 
 En resumen, éstos son los plugins a instalar en eclipse:
 
-  * Mylyn: http://download.eclipse.org/mylyn/releases/latest
-  * Incubator: http://download.eclipse.org/mylyn/incubator/3.10
+  * Mylyn: https://download.eclipse.org/mylyn/releases/latest
+  * Incubator: https://download.eclipse.org/mylyn/incubator/3.10
 
 ## Instalar Incubator
 
@@ -91,7 +91,7 @@ Para ello hay que ir al menú:
 Para la conexión con redmine introducir los siguientes parámetros:
 
 <pre class="lang:default decode:true">
-Server:                 http://www.redmine.org -- Replace it with the URL of your Redmine instance
+Server:                 https://www.redmine.org -- Replace it with the URL of your Redmine instance
 Task URL:               ${serverUrl}/issues/
 New task URL:           ${serverUrl}/projects/appjose/issues/new -- Replace appjose with the identifier of the project used for new tasks
 Query request URL:      ${serverUrl}/issues
@@ -114,4 +114,4 @@ Login Token Pattern:    &lt;input name="authenticity_token" type="hidden" value=
 
 &nbsp;
 
-Para más información sobre cómo configurar la conexión: <http://www.redmine.org/projects/redmine/wiki/HowTo_Mylyn>
+Para más información sobre cómo configurar la conexión: <https://www.redmine.org/projects/redmine/wiki/HowTo_Mylyn>
